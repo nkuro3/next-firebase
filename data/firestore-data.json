@@ -1,0 +1,46 @@
+{
+  "users": {
+    "user1": {
+      "username": "john_doe",
+      "email": "john_doe@example.com",
+      "profileImageUrl": "https://example.com/profile1.jpg",
+      "birthDate": "1990-01-01",
+      "gender": "male",
+      "agreedToTerms": true,
+      "createdAt": "2024-01-01T12:00:00Z"
+    },
+    "user2": {
+      "username": "jane_smith",
+      "email": "jane_smith@example.com",
+      "profileImageUrl": "https://example.com/profile2.jpg",
+      "birthDate": "1992-02-02",
+      "gender": "female",
+      "agreedToTerms": true,
+      "createdAt": "2024-01-02T14:00:00Z"
+    }
+  },
+  "posts": {
+    "post1": {
+      "userId": "user1",
+      "content": "This is John Doe's first post!",
+      "createdAt": "2024-01-01T12:00:00Z",
+      "likes": 5
+    },
+    "post2": {
+      "userId": "user2",
+      "content": "Hello from Jane Smith!",
+      "createdAt": "2024-01-02T14:00:00Z",
+      "likes": 10
+    }
+  },
+  "follows": {
+    "user1": {
+      "following": ["user2"],
+      "followers": ["user2"]
+    },
+    "user2": {
+      "following": ["user1"],
+      "followers": ["user1"]
+    }
+  }
+}
