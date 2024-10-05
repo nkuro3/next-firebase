@@ -1,0 +1,51 @@
+{
+  "name": "next-firebase",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint .",
+    "prepare": "husky",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "dayjs": "^1.11.13",
+    "lucide-react": "^0.447.0",
+    "next": "14.2.14",
+    "react": "^18",
+    "react-dom": "^18",
+    "tailwind-merge": "^2.5.3",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "@tailwindcss/forms": "^0.5.9",
+    "@tailwindcss/typography": "^0.5.15",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@typescript-eslint/eslint-plugin": "^8.8.0",
+    "@typescript-eslint/parser": "^8.8.0",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.14",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.31.0",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
+    "postcss": "^8",
+    "prettier": "^3.3.3",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  },
+  "lint-staged": {
+    "app/**/*.{ts,tsx}": [
+      "pnpm lint"
+    ]
+  }
+}
