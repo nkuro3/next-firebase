@@ -35,6 +35,6 @@ form-action 'self';
 frame-ancestors 'none';
 frame-src 'self' https://www.googletagmanager.com https://www.google.com https://www.gstatic.com;
 child-src 'self' https://www.googletagmanager.com https://www.google.com https://www.gstatic.com;
-connect-src 'self' https://www.google.com https://www.gstatic.com https://www.google-analytics.com;
+connect-src 'self' https://www.google.com https://www.gstatic.com https://www.google-analytics.com http://127.0.0.1:9099 http://127.0.0.1:8080 http://127.0.0.1:9199;
 upgrade-insecure-requests;
 `;

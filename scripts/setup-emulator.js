@@ -29,7 +29,7 @@ const users = [
   {
     username: "User 1",
     email: "abc123@test.com",
-    password: "abc123",
+    password: "abcABC123",
     imagePath: "./data/images/user1.png",
     birth: "1990-01-01",
     gender: 0,
@@ -38,7 +38,7 @@ const users = [
   {
     username: "User 2",
     email: "xyz789@test.com",
-    password: "xyz789",
+    password: "xyzXYZ789",
     imagePath: "./data/images/user2.png",
     birth: "1995-01-01",
     gender: 1,

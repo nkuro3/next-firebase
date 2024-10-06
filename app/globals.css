@@ -3,25 +3,62 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  h1 {
+    @apply text-3xl;
+  }
+  h2 {
+    @apply text-2xl;
+  }
+  h3 {
+    @apply text-xl;
+  }
+  h4 {
+    @apply text-lg;
+  }
+  h5 {
+    @apply text-base;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  @media screen(lg) {
+    h1 {
+      @apply text-4xl;
+    }
+    h2 {
+      @apply text-3xl;
+    }
+    h3 {
+      @apply text-2xl;
+    }
+    h4 {
+      @apply text-xl;
+    }
+    h5 {
+      @apply text-lg;
+    }
+  }
+
+  @media screen(xl) {
+    h1 {
+      @apply text-5xl;
+    }
+    h2 {
+      @apply text-4xl;
+    }
+    h3 {
+      @apply text-3xl;
+    }
+    h4 {
+      @apply text-2xl;
+    }
+    h5 {
+      @apply text-xl;
+    }
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
+@layer base {
+  :root {
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+    --radius: 0.5rem
   }
 }
