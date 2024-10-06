@@ -1,21 +1,11 @@
 "use client";
 
-import { doc, getDoc } from "firebase/firestore";
-import useSWRImmutable from "swr/immutable";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
-import { auth, firestore } from "@/lib/firebase/client";
+import { useFetchUser } from "@/hooks/use-fetch-user";
 import dayjs from "@/lib/utils/dayjs";
 
-const fetchUser = async (docId: string) => {
-  const userDocRef = doc(firestore, "users", docId);
-  const userDoc = await getDoc(userDocRef);
-  if (!userDoc.exists()) return null;
-  return userDoc.data();
-};
-
 const Profile = () => {
-  const docId = auth.currentUser?.uid;
-  const { data: user } = useSWRImmutable(["user", docId], () => (docId ? fetchUser(docId) : null));
+  const { user } = useFetchUser();
 
   return (
     <div>

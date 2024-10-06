@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Footer from "@/components/common/footer";
+import Header from "@/components/common/header";
 
 export default function RootLayout({
   children
@@ -9,7 +11,9 @@ export default function RootLayout({
   return (
     <html lang="jp">
       <body className="overscroll-y-none">
+        <Header />
         <main className="min-h-screen p-20">{children}</main>
+        <Footer />
       </body>
     </html>
   );

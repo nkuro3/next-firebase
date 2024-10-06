@@ -10,6 +10,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { SubmitButton } from "@/components/ui/submit-button";
+import { TERMS_URL } from "@/lib/constant";
 import { auth, firestore, storage } from "@/lib/firebase/client";
 
 type SignupInputs = {
@@ -225,10 +226,7 @@ const SignupForm = () => {
                 {...register("isAgreeTerms", { required: "この項目は必須です。" })}
               />
               <label htmlFor="isAgreeTerms" className="ml-3 hover:cursor-pointer">
-                <Link
-                  href="https://luna-matching.notion.site/a714620bbd8740d1ac98f2326fbd0bbc"
-                  className="text-gray-700 underline"
-                >
+                <Link href={TERMS_URL} className="text-gray-700 underline">
                   利用規約
                 </Link>
                 に同意します。
