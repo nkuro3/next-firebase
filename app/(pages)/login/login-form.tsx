@@ -13,7 +13,7 @@ type LoginInputs = {
   password: string;
 };
 
-const Login = () => {
+const LoginForm = () => {
   const router = useRouter();
   const [isLoginFaled, setIsLoginFaled] = useState(false);
   const [pending, startTransition] = useTransition();
@@ -34,7 +34,7 @@ const Login = () => {
         }, 3000);
       });
       if (!userCredencial) return;
-      router.push("/home");
+      router.push("/");
     });
   };
 
@@ -54,6 +54,7 @@ const Login = () => {
             <br />
             <input
               className="border"
+              type="password"
               {...register("password", {
                 required: "この項目は必須です。",
                 minLength: { value: 8, message: "パスワードは8文字以上で設定してください。" },
@@ -72,4 +73,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginForm;
