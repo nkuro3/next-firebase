@@ -7,8 +7,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={"container p-10"}>{children}</body>
+    <html lang="jp">
+      <body className="overscroll-y-none">
+        <main className="min-h-screen p-20">{children}</main>
+      </body>
     </html>
   );
 }

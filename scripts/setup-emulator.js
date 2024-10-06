@@ -32,8 +32,8 @@ const users = [
     password: "abcABC123",
     imagePath: "./data/images/user1.png",
     birth: "1990-01-01",
-    gender: 0,
-    isAgree: true
+    gender: "male",
+    isAgreeTerms: true
   },
   {
     username: "User 2",
@@ -41,8 +41,8 @@ const users = [
     password: "xyzXYZ789",
     imagePath: "./data/images/user2.png",
     birth: "1995-01-01",
-    gender: 1,
-    isAgree: true
+    gender: "female",
+    isAgreeTerms: true
   }
 ];
 

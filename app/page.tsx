@@ -5,6 +5,7 @@ export default function Home() {
     <div className="flex flex-col">
       <Link href="/login">ログイン</Link>
       <Link href="/signup">サインアップ</Link>
+      <Link href="/profile">マイページ</Link>
     </div>
   );
 }
