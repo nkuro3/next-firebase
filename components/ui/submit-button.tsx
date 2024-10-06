@@ -14,10 +14,10 @@ export const SubmitButton = ({ children, pending, ...props }: Props): JSX.Elemen
       {!pending ? (
         children
       ) : (
-        <>
+        <div>
           <div className="h-0 opacity-0">{children}</div>
-          <div className="animate-spin rounded-full border-t-transparent h-6 w-6 border-2 border-gray-50 mx-auto"></div>
-        </>
+          <div className="animate-spin rounded-full border-t-transparent h-4 w-4 border-2 border-white mx-auto"></div>
+        </div>
       )}
     </Button>
   );

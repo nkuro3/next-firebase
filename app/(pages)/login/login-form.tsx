@@ -47,7 +47,7 @@ const LoginForm = () => {
             <label htmlFor="email">Email</label>
             <br />
             <input id="email" className="border" {...register("email", { required: "この項目は必須です。" })} />
-            <div className="h-[24px]"> {errors.email && errors.email.message}</div>
+            <div className="h-[24px]">{errors.email && errors.email.message}</div>
           </div>
           <div>
             <label htmlFor="password">パスワード</label>
@@ -64,9 +64,11 @@ const LoginForm = () => {
                 }
               })}
             />
-            <div className="h-[24px]"> {errors.password && errors.password.message}</div>
+            <div className="h-[24px]">{errors.password && errors.password.message}</div>
           </div>
-          <SubmitButton pending={pending}>ログイン</SubmitButton>
+          <div className="mt-5 text-right">
+            <SubmitButton pending={pending}>ログイン</SubmitButton>
+          </div>
         </form>
       </Card>
     </div>

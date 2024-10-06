@@ -38,7 +38,6 @@ const SignupForm = () => {
   const password = watch("password");
   const onSubmit: SubmitHandler<SignupInputs> = async (data) => {
     const { username, email, profileImage, birth, gender, isAgreeTerms } = data;
-    console.log({ username, email, profileImage, birth, gender, isAgreeTerms });
     startTransition(async () => {
       const userCredencial = await createUserWithEmailAndPassword(auth, data.email, data.password).catch((e) => {
         console.error(e);
@@ -116,21 +115,21 @@ const SignupForm = () => {
               onChange={handleImageChange}
               className="cursor-pointer"
             />
-            <div className="h-[24px]"> {errors.profileImage && errors.profileImage.message}</div>
+            <div className="h-[24px]">{errors.profileImage && errors.profileImage.message}</div>
           </div>
 
           <div>
             <label htmlFor="username">ユーザー名</label>
             <br />
             <input id="username" className="border" {...register("username", { required: "この項目は必須です。" })} />
-            <div className="h-[24px]"> {errors.email && errors.email.message}</div>
+            <div className="h-[24px]">{errors.email && errors.email.message}</div>
           </div>
 
           <div>
             <label htmlFor="email">Email</label>
             <br />
             <input id="email" className="border" {...register("email", { required: "この項目は必須です。" })} />
-            <div className="h-[24px]"> {errors.email && errors.email.message}</div>
+            <div className="h-[24px]">{errors.email && errors.email.message}</div>
           </div>
 
           <div>
@@ -148,7 +147,7 @@ const SignupForm = () => {
                 }
               })}
             />
-            <div className="h-[24px]"> {errors.password && errors.password.message}</div>
+            <div className="h-[24px]">{errors.password && errors.password.message}</div>
           </div>
 
           <div>
@@ -162,7 +161,7 @@ const SignupForm = () => {
                 validate: (value) => value === password || "パスワードと一致しません。"
               })}
             />
-            <div className="h-[24px]"> {errors.confirmPassword && errors.confirmPassword.message}</div>
+            <div className="h-[24px]">{errors.confirmPassword && errors.confirmPassword.message}</div>
           </div>
 
           <div>
@@ -174,7 +173,7 @@ const SignupForm = () => {
               className="border hover:cursor-pointer"
               {...register("birth", { required: "この項目は必須です。" })}
             />
-            <div className="h-[24px]"> {errors.birth && errors.birth.message}</div>
+            <div className="h-[24px]">{errors.birth && errors.birth.message}</div>
           </div>
 
           <div>
@@ -214,7 +213,7 @@ const SignupForm = () => {
                 </label>
               </div>
             </div>
-            <div className="h-[24px]"> {errors.gender && errors.gender.message}</div>
+            <div className="h-[24px]">{errors.gender && errors.gender.message}</div>
           </div>
 
           <div>
@@ -232,10 +231,11 @@ const SignupForm = () => {
                 に同意します。
               </label>
             </div>
-            <div className="h-[24px]"> {errors.isAgreeTerms && errors.isAgreeTerms.message}</div>
+            <div className="h-[24px]">{errors.isAgreeTerms && errors.isAgreeTerms.message}</div>
           </div>
-
-          <SubmitButton pending={pending}>サインアップ</SubmitButton>
+          <div className="mt-5 text-right">
+            <SubmitButton pending={pending}>サインアップ</SubmitButton>
+          </div>
         </form>
       </Card>
     </div>

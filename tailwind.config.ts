@@ -10,6 +10,23 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontSize: {
+        "2xs": ["0.625rem", "1rem"]
+      },
+      spacing: {
+        "96": "24rem",
+        "100": "25rem",
+        "120": "30rem",
+        "144": "36rem",
+        "156": "39rem",
+        "168": "42rem",
+        "192": "48rem",
+        "200": "50rem",
+        "240": "60rem",
+        "300": "75rem",
+        "400": "100rem",
+        "1/2": "50%"
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)"
