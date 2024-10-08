@@ -14,7 +14,8 @@ import {
   doc,
   addDoc,
   serverTimestamp,
-  Timestamp
+  Timestamp,
+  where
 } from "firebase/firestore";
 import { getStorage, connectStorageEmulator } from "firebase/storage";
 import { ITEMS_PER_PAGE } from "@/lib/constant";
@@ -59,14 +60,12 @@ export type UserData = {
   createdAt: Timestamp;
 };
 
-export async function getFeedItems(
-  lastDoc?: QueryDocumentSnapshot
-): Promise<{ items: FeedItem[]; lastDoc: QueryDocumentSnapshot | undefined }> {
-  let q = query(collection(firestore, "feeds"), orderBy("createdAt", "desc"), limit(ITEMS_PER_PAGE));
-  if (lastDoc) {
-    q = query(q, startAfter(lastDoc));
-  }
+export type QueryFeedItemsResponse = { items: FeedItem[]; lastDoc: QueryDocumentSnapshot | undefined };
 
+export async function queryFeedItems(lastDoc?: QueryDocumentSnapshot, uid?: string): Promise<QueryFeedItemsResponse> {
+  let q = query(collection(firestore, "feeds"), orderBy("createdAt", "desc"), limit(ITEMS_PER_PAGE));
+  if (uid) q = query(q, where("authorId", "==", uid));
+  if (lastDoc) q = query(q, startAfter(lastDoc));
   const querySnapshot = await getDocs(q);
   const items = querySnapshot.docs.map(
     (doc) =>

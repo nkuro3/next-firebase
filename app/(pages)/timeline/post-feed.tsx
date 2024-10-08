@@ -72,8 +72,10 @@ const PostFeed = () => {
     if (textarea) textarea.focus();
   }, []);
 
+  if (!user || !user.uid) return null;
+
   return (
-    <div className="max-w-2xl mx-auto border">
+    <div className="max-w-2xl mx-auto border-x border-t">
       <form onSubmit={handleSubmit(onSubmit)} noValidate>
         <div className="flex p-4 ">
           <img src={user?.imageUrl} alt="User avatar" className="w-12 h-12 rounded-full mr-4" />

@@ -5,7 +5,7 @@ import Profile from "./profile";
 const ProfilePage = () => {
   return (
     <div>
-      <h1 className="my-10">マイページ</h1>
+      <h1 className="my-10 fixed">マイページ</h1>
       <Suspense fallback={<div>loading...</div>}>
         <Profile />
       </Suspense>
