@@ -1,9 +1,6 @@
 "use client";
 
-import { signOut as firebaseSignOut } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
-import { useRouter } from "next/navigation";
-import { useCallback } from "react";
 import useSWRImmutable from "swr/immutable";
 import { auth, firestore } from "@/lib/firebase/client";
 
@@ -16,17 +13,6 @@ const fetchUser = async (docId: string) => {
 
 export const useFetchUser = () => {
   const docId = auth.currentUser?.uid;
-  const router = useRouter();
-  const { data: user, mutate } = useSWRImmutable(["user", docId], () => (docId ? fetchUser(docId) : null));
-
-  const signOut = useCallback(async () => {
-    try {
-      await firebaseSignOut(auth).then(() => mutate(["user", docId], false));
-      router.push("/login");
-    } catch (e) {
-      console.error("Error signing out:", e);
-    }
-  }, [docId, router, mutate]);
-
-  return { user, signOut };
+  const { data: user } = useSWRImmutable(["user", docId], () => (docId ? fetchUser(docId) : null));
+  return { user };
 };

@@ -1,12 +1,13 @@
 "use client";
 
 import { ButtonHTMLAttributes, ReactNode } from "react";
-import { Button } from "@/components/ui/button";
+import { Button, ButtonProps } from "@/components/ui/button";
 
-type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
-  children: ReactNode;
-  pending: boolean;
-};
+type Props = ButtonHTMLAttributes<HTMLButtonElement> &
+  ButtonProps & {
+    children: ReactNode;
+    pending: boolean;
+  };
 
 export const SubmitButton = ({ children, pending, ...props }: Props): JSX.Element => {
   return (

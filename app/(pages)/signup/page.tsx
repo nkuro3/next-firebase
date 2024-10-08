@@ -4,7 +4,7 @@ import SignupForm from "./signup-form";
 const SignupPage = () => {
   return (
     <div>
-      <h1 className="mb-10">サインアップ</h1>
+      <h1 className="my-10">サインアップ</h1>
       <SignupForm />
     </div>
   );

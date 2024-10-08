@@ -7,6 +7,7 @@ export default function Home() {
       <Link href="/signup">サインアップ</Link>
       <Link href="/profile">マイページ</Link>
       <Link href="/feed/create">フィード作成</Link>
+      <Link href="/timeline">タイムライン</Link>
     </div>
   );
 }

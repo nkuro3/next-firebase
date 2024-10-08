@@ -1,11 +1,13 @@
 "use client";
 
+import useSWRImmutable from "swr/immutable";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
-import { useFetchUser } from "@/hooks/use-fetch-user";
+import { auth, getUserData } from "@/lib/firebase/client";
 import dayjs from "@/lib/utils/dayjs";
 
 const Profile = () => {
-  const { user } = useFetchUser();
+  const docId = auth.currentUser?.uid;
+  const { data: user } = useSWRImmutable(["user", docId], () => (docId ? getUserData(docId) : null));
 
   return (
     <div>

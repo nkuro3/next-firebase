@@ -4,7 +4,7 @@ import CreateFeedForm from "./create-feed-form";
 const CreateFeedPage = () => {
   return (
     <div>
-      <h1 className="mb-10">フィードを作成</h1>
+      <h1 className="my-10">フィードを作成</h1>
       <CreateFeedForm />
     </div>
   );

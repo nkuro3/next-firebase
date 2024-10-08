@@ -1,9 +1,18 @@
+import crypto from "crypto";
 import fs from "fs";
 import dotenv from "dotenv";
 dotenv.config({ path: ".env.local" });
 import { initializeApp } from "firebase/app";
 import { getAuth, connectAuthEmulator, createUserWithEmailAndPassword } from "firebase/auth";
-import { getFirestore, connectFirestoreEmulator, doc, setDoc } from "firebase/firestore";
+import {
+  getFirestore,
+  connectFirestoreEmulator,
+  doc,
+  setDoc,
+  addDoc,
+  collection,
+  serverTimestamp
+} from "firebase/firestore";
 import { getStorage, connectStorageEmulator, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 const firebaseConfig = {
@@ -43,6 +52,24 @@ const users = [
     birth: "1995-01-01",
     gender: "female",
     isAgreeTerms: true
+  },
+  {
+    username: "User 3",
+    email: "user3@test.com",
+    password: "abcABC123",
+    imagePath: "./data/images/user3.png",
+    birth: "1995-01-01",
+    gender: "male",
+    isAgreeTerms: true
+  },
+  {
+    username: "User 4",
+    email: "user4@test.com",
+    password: "abcABC123",
+    imagePath: "./data/images/user4.png",
+    birth: "1995-01-01",
+    gender: "male",
+    isAgreeTerms: true
   }
 ];
 
@@ -54,19 +81,19 @@ const uploadProfileImage = async (uid, imagePath) => {
 };
 
 const saveUserToFirestore = async (uid, user, imageUrl) => {
-  const { email, username, birth, gender, isAgree } = user;
+  const { email, username, birth, gender, isAgreeTerms } = user;
   const userDocRef = doc(firestore, "users", uid);
 
-  console.log({
-    uid,
-    email,
-    username,
-    imageUrl,
-    birth,
-    gender,
-    isAgree,
-    createdAt: new Date()
-  });
+  // console.log({
+  //   uid,
+  //   email,
+  //   username,
+  //   imageUrl,
+  //   birth,
+  //   gender,
+  //   isAgreeTerms,
+  //   createdAt: new Date()
+  // });
 
   await setDoc(userDocRef, {
     uid,
@@ -75,7 +102,7 @@ const saveUserToFirestore = async (uid, user, imageUrl) => {
     imageUrl,
     birth,
     gender,
-    isAgree,
+    isAgreeTerms,
     createdAt: new Date()
   });
 };
@@ -86,6 +113,19 @@ const createTestUsers = async () => {
       const { user } = await createUserWithEmailAndPassword(auth, testUser.email, testUser.password);
       const downloadURL = await uploadProfileImage(user.uid, testUser.imagePath);
       await saveUserToFirestore(user.uid, testUser, downloadURL);
+      await createFeed(user.uid);
+      await createFeed(user.uid);
+      await createFeed(user.uid);
+      await createFeed(user.uid);
+      await createFeed(user.uid);
+      await createFeed(user.uid);
+      await createFeed(user.uid);
+      await createFeed(user.uid);
+      await createFeed(user.uid);
+      await createFeed(user.uid);
+      await createFeed(user.uid);
+      await createFeed(user.uid);
+      await createFeed(user.uid);
       console.log(`User ${user.uid} saved to Firestore.`);
     } catch (error) {
       console.error("Failed to save user to Firestore:", error);
@@ -97,6 +137,16 @@ const createTestUsers = async () => {
       await signup(user);
     })
   );
+};
+
+const createFeed = async (authorId) => {
+  const content = crypto.randomBytes(10).toString("base64");
+  console.log({ authorId, content });
+  await addDoc(collection(firestore, "feeds"), {
+    content,
+    authorId,
+    createdAt: serverTimestamp()
+  });
 };
 
 createTestUsers();

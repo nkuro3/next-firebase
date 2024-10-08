@@ -1,36 +1,21 @@
 "use client";
 
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Card } from "@/components/ui/card";
 import { SubmitButton } from "@/components/ui/submit-button";
-import { useFetchUser } from "@/hooks/use-fetch-user";
+import { useAuth } from "@/hooks/use-auth";
 import { MAX_CHARACTERS } from "@/lib/constant";
-import { firestore } from "@/lib/firebase/client";
+import { createFeed } from "@/lib/firebase/client";
 
 type CreateFeedFormInputs = {
   content: string;
 };
 
-const createFeed = async (data: CreateFeedFormInputs, authorId: string) => {
-  try {
-    const { content } = data;
-    const docRef = await addDoc(collection(firestore, "feed"), {
-      content,
-      authorId,
-      createdAt: serverTimestamp()
-    });
-    return docRef.id;
-  } catch (e) {
-    console.error("Error adding document: ", e);
-  }
-};
-
 const CreateFeedForm = () => {
   const router = useRouter();
-  const { user } = useFetchUser();
+  const { user } = useAuth();
   const [numOfCharacters, setNumOfCharacters] = useState(0);
   const [isFeedSuccess] = useState(false);
   const [pending, startTransition] = useTransition();
@@ -43,7 +28,9 @@ const CreateFeedForm = () => {
 
   const onSubmit: SubmitHandler<CreateFeedFormInputs> = async (data) => {
     startTransition(async () => {
-      const feedId = await createFeed(data, user?.uid);
+      if (!user || !user.uid) return;
+      const { content } = data;
+      const feedId = await createFeed(content, user.uid);
       if (!feedId) {
         reset();
         return;
@@ -52,7 +39,7 @@ const CreateFeedForm = () => {
     });
   };
 
-  if (!user) return null;
+  if (!user || !user.uid) return null;
 
   return (
     <div>
