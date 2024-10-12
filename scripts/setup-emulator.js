@@ -125,6 +125,10 @@ const createTestUsers = async () => {
       await signup(user);
     })
   );
+
+  await new Promise((resolve) => setTimeout(resolve, 3000));
+
+  process.exit(0);
 };
 
 const createFeed = async (authorId) => {

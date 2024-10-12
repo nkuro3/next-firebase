@@ -35,16 +35,17 @@ const CreateFeedForm = () => {
         reset();
         return;
       }
-      router.push("/");
+      router.push("/timeline");
     });
   };
 
   if (!user || !user.uid) return null;
 
   return (
-    <div>
+    <div className="mx-auto w-fit">
+      <h3 className="my-10">フィードを作成</h3>
       {isFeedSuccess && <div>送信に失敗しました。</div>}
-      <Card className="p-5 w-fit">
+      <Card className="p-5 ">
         <form onSubmit={handleSubmit(onSubmit)} noValidate>
           <div>
             <div className="flex justify-between">

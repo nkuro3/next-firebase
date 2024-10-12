@@ -85,37 +85,38 @@ const SignupForm = () => {
       {errorMessage && <div>{errorMessage}</div>}
       <Card className="p-5 w-fit">
         <form onSubmit={handleSubmit(onSubmit)} noValidate>
-          <div>
-            <label htmlFor="confirmPassword">ユーザーアイコン</label>
-            <br />
+          <label htmlFor="confirmPassword">ユーザーアイコン</label>
+          <div className="mb-[24px]">
             {previewImage && (
               <img src={previewImage} alt="Preview" className="mt-2 h-20 w-20 object-cover rounded-full border" />
             )}
-            <Input
-              id="profileImage"
-              type="file"
-              accept="image/*"
-              multiple={false}
-              {...register("profileImage", {
-                required: "この項目は必須です。",
-                validate: {
-                  fileSize: (file) => {
-                    console.log(file);
-                    return !file.length || file[0].size <= 5000000 || "ファイルサイズは5MB以下にしてください。";
-                  },
-                  fileType: (file) => {
-                    return (
-                      !file.length ||
-                      ["image/jpeg", "image/png", "image/gif"].includes(file[0].type) ||
-                      "JPG、PNG、GIF形式のみアップロード可能です。"
-                    );
+            <div>
+              <Input
+                id="profileImage"
+                type="file"
+                accept="image/*"
+                multiple={false}
+                {...register("profileImage", {
+                  required: "この項目は必須です。",
+                  validate: {
+                    fileSize: (file) => {
+                      console.log(file);
+                      return !file.length || file[0].size <= 5000000 || "ファイルサイズは5MB以下にしてください。";
+                    },
+                    fileType: (file) => {
+                      return (
+                        !file.length ||
+                        ["image/jpeg", "image/png", "image/gif"].includes(file[0].type) ||
+                        "JPG、PNG、GIF形式のみアップロード可能です。"
+                      );
+                    }
                   }
-                }
-              })}
-              onChange={handleImageChange}
-              className="cursor-pointer"
-            />
-            <div className="h-[24px]">{errors.profileImage && errors.profileImage.message}</div>
+                })}
+                onChange={handleImageChange}
+                className="mt-2 cursor-pointer"
+              />
+              {errors.profileImage && <div>{errors.profileImage.message}</div>}
+            </div>
           </div>
 
           <div>

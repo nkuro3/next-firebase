@@ -1,33 +1,18 @@
 "use client";
 
-import { onAuthStateChanged } from "firebase/auth";
 import { Edit } from "lucide-react";
-import { useEffect, useState } from "react";
-import useSWRImmtable from "swr/immutable";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { auth, getUserData } from "@/lib/firebase/client";
+import { useFetchUser } from "@/hooks/use-fetch-user";
 import dayjs from "@/lib/utils/dayjs";
 import EditUserForm from "./edit-user-form";
 import MyFeeds from "./my-feeds";
 import NewFeedForm from "./new-feed-form";
 
 const Profile = () => {
-  const [docId, setDocId] = useState("");
-  const { data: user, mutate } = useSWRImmtable(["user", docId], () => (docId ? getUserData(docId) : null));
+  const { user, mutate } = useFetchUser();
   const [isOpenNewFeed, setIsOpenNewFeed] = useState(false);
   const [isOpenEditUser, setIsOpenEditUser] = useState(false);
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser) {
-        setDocId(currentUser.uid);
-      } else {
-        setDocId("");
-      }
-    });
-
-    return () => unsubscribe();
-  }, []);
 
   return (
     <div>

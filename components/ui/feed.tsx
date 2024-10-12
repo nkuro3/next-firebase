@@ -18,7 +18,7 @@ export const Feed = ({ feed, user }: Props) => {
       <div>
         <p className="font-bold">{user.username}</p>
         <p>{feed.content}</p>
-        <p className="text-sm text-gray-500">{feed.createdAt.toLocaleString()}</p>
+        <p className="text-sm text-gray-500">{feed.createdAt?.toLocaleString()}</p>
       </div>
     </div>
   );
