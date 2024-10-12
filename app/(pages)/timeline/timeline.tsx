@@ -11,8 +11,8 @@ import {
 } from "firebase/firestore";
 import { useEffect, useState, useCallback, useMemo } from "react";
 import { useInView } from "react-intersection-observer";
+import { Feed } from "@/app/(pages)/timeline/feed";
 import { Button } from "@/components/ui/button";
-import { Feed } from "@/components/ui/feed";
 import { ITEMS_PER_PAGE } from "@/lib/constant";
 import { queryFeedItems, getUserData, FeedItem, UserData, firestore } from "@/lib/firebase/client";
 
@@ -68,7 +68,13 @@ const Timeline = () => {
   const memoizedFeeds = useMemo(
     () =>
       feedItems
-        .map((feed) => (users[feed.authorId] ? <Feed key={feed.id} feed={feed} user={users[feed.authorId]} /> : null))
+        .map((feed) =>
+          users[feed.authorId] ? (
+            <div key={feed.id} className="border-b">
+              <Feed feed={feed} user={users[feed.authorId]} />
+            </div>
+          ) : null
+        )
         .filter(Boolean),
     [feedItems, users]
   );

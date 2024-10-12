@@ -16,7 +16,8 @@ import {
   serverTimestamp,
   Timestamp,
   where,
-  updateDoc
+  updateDoc,
+  deleteDoc
 } from "firebase/firestore";
 import { getStorage, connectStorageEmulator } from "firebase/storage";
 import { ITEMS_PER_PAGE } from "@/lib/constant";
@@ -93,6 +94,17 @@ export const createFeed = async (content: string, authorId: string) => {
     return docRef.id;
   } catch (e) {
     console.error("Error adding document: ", e);
+  }
+};
+
+export const deleteFeed = async (feedId: string) => {
+  try {
+    const feedDocRef = doc(firestore, "feeds", feedId);
+    await deleteDoc(feedDocRef);
+    return true;
+  } catch (e) {
+    console.error("Error deleteing document: ", e);
+    return false;
   }
 };
 

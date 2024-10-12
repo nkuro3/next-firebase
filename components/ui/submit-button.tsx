@@ -6,12 +6,12 @@ import { Button, ButtonProps } from "@/components/ui/button";
 type Props = ButtonHTMLAttributes<HTMLButtonElement> &
   ButtonProps & {
     children: ReactNode;
-    pending: boolean;
+    pending?: boolean;
   };
 
-export const SubmitButton = ({ children, pending, ...props }: Props): JSX.Element => {
+export const SubmitButton = ({ children, pending, className, ...props }: Props): JSX.Element => {
   return (
-    <Button type="submit" disabled={pending} {...props}>
+    <Button type="submit" disabled={pending} className={className} {...props}>
       {!pending ? (
         children
       ) : (
