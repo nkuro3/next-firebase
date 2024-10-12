@@ -15,7 +15,7 @@ type LoginInputs = {
 
 const LoginForm = () => {
   const router = useRouter();
-  const [isLoginFaled, setIsLoginFaled] = useState(false);
+  const [isLoginFailed, setIsLoginFailed] = useState(false);
   const [pending, startTransition] = useTransition();
   const {
     register,
@@ -28,19 +28,19 @@ const LoginForm = () => {
       const userCredencial = await signInWithEmailAndPassword(auth, data.email, data.password).catch((e) => {
         console.error(e);
         reset();
-        setIsLoginFaled(true);
+        setIsLoginFailed(true);
         setTimeout(() => {
-          setIsLoginFaled(false);
+          setIsLoginFailed(false);
         }, 3000);
       });
       if (!userCredencial) return;
-      router.push("/");
+      router.push("/timeline");
     });
   };
 
   return (
     <div>
-      {isLoginFaled && <div>ユーザーが存在しません。</div>}
+      {isLoginFailed && <div>ユーザーが存在しません。</div>}
       <Card className="p-5 w-fit">
         <form onSubmit={handleSubmit(onSubmit)} noValidate>
           <div>

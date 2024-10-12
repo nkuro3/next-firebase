@@ -9,9 +9,9 @@ const Header = () => {
   const { user, signOut } = useAuth();
 
   return (
-    <header className="sticky top-0 h-20 px-5 bg-white shadow-lg flex items-center justify-between z-10">
+    <header className="sticky top-0 h-20 px-5 bg-white border-b border-gray-200 flex items-center justify-between z-10">
       <div>
-        <Link className="flex items-center" href="/">
+        <Link className="flex items-center" href={user ? "/timeline" : "/"}>
           <Logo />
         </Link>
       </div>
@@ -19,7 +19,7 @@ const Header = () => {
         {!user ? (
           <>
             <Link className="mr-5 hover:underline" href="/signup">
-              サインアップ
+              Signup
             </Link>
             <Link className="hover:underline" href="/login">
               ログイン

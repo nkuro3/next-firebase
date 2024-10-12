@@ -69,7 +69,7 @@ const SignupForm = () => {
         createdAt: new Date()
       });
 
-      router.push("/");
+      router.push("/timeline");
     });
   };
   const [previewImage, setPreviewImage] = useState("");
@@ -128,7 +128,18 @@ const SignupForm = () => {
           <div>
             <label htmlFor="email">Email</label>
             <br />
-            <input id="email" className="border" {...register("email", { required: "この項目は必須です。" })} />
+            <input
+              id="email"
+              className="border"
+              type="email"
+              {...register("email", {
+                required: "この項目は必須です。",
+                pattern: {
+                  value: /^[a-zA-Z0-9_.+-]+@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$/,
+                  message: "正しいメールアドレスを入力してください。"
+                }
+              })}
+            />
             <div className="h-[24px]">{errors.email && errors.email.message}</div>
           </div>
 
@@ -140,11 +151,7 @@ const SignupForm = () => {
               className="border"
               {...register("password", {
                 required: "この項目は必須です。",
-                minLength: { value: 8, message: "パスワードは8文字以上で設定してください。" },
-                pattern: {
-                  value: /^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\d).{3,}$/,
-                  message: "パスワードは大文字、小文字、数字を含めて設定してください。"
-                }
+                minLength: { value: 8, message: "パスワードは8文字以上で設定してください。" }
               })}
             />
             <div className="h-[24px]">{errors.password && errors.password.message}</div>
@@ -195,7 +202,9 @@ const SignupForm = () => {
                   id="female"
                   type="radio"
                   value="female"
-                  {...register("gender", { required: "この項目は必須です。" })}
+                  {...register("gender", {
+                    required: "この項目は必須です。"
+                  })}
                 />
                 <label htmlFor="female" className="hover:cursor-pointer">
                   女性

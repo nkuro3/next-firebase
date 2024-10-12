@@ -8,7 +8,13 @@ type Props = {
 export const Feed = ({ feed, user }: Props) => {
   return (
     <div className="flex items-start space-x-4 p-4 border-b">
-      <img src={user.imageUrl} alt={`${user.username}'s avatar`} width={40} height={40} className="rounded-full" />
+      <img
+        src={user.imageUrl}
+        alt={`${user.username}'s avatar`}
+        width={40}
+        height={40}
+        className="w-10 h-10 rounded-full border"
+      />
       <div>
         <p className="font-bold">{user.username}</p>
         <p>{feed.content}</p>

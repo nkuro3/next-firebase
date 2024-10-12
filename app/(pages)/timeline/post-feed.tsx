@@ -1,7 +1,6 @@
 "use client";
 
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
-import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState, useTransition } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { SubmitButton } from "@/components/ui/submit-button";
@@ -28,7 +27,6 @@ const createFeed = async (data: CreateFeedFormInputs, authorId: string) => {
 };
 
 const PostFeed = () => {
-  const router = useRouter();
   const { user } = useFetchUser();
   const [numOfCharacters, setNumOfCharacters] = useState(0);
   const [pending, startTransition] = useTransition();
@@ -51,7 +49,6 @@ const PostFeed = () => {
         reset();
         return;
       }
-      router.push("/");
     });
   };
 
@@ -75,7 +72,7 @@ const PostFeed = () => {
   if (!user || !user.uid) return null;
 
   return (
-    <div className="max-w-2xl mx-auto border-x border-t">
+    <div className="max-w-2xl mx-auto border-x">
       <form onSubmit={handleSubmit(onSubmit)} noValidate>
         <div className="flex p-4 ">
           <img src={user?.imageUrl} alt="User avatar" className="w-12 h-12 rounded-full mr-4" />
