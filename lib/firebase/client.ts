@@ -15,7 +15,8 @@ import {
   addDoc,
   serverTimestamp,
   Timestamp,
-  where
+  where,
+  updateDoc
 } from "firebase/firestore";
 import { getStorage, connectStorageEmulator } from "firebase/storage";
 import { ITEMS_PER_PAGE } from "@/lib/constant";
@@ -62,7 +63,10 @@ export type UserData = {
 
 export type QueryFeedItemsResponse = { items: FeedItem[]; lastDoc: QueryDocumentSnapshot | undefined };
 
-export async function queryFeedItems(lastDoc?: QueryDocumentSnapshot, uid?: string): Promise<QueryFeedItemsResponse> {
+export const queryFeedItems = async (
+  lastDoc?: QueryDocumentSnapshot,
+  uid?: string
+): Promise<QueryFeedItemsResponse> => {
   let q = query(collection(firestore, "feeds"), orderBy("createdAt", "desc"), limit(ITEMS_PER_PAGE));
   if (uid) q = query(q, where("authorId", "==", uid));
   if (lastDoc) q = query(q, startAfter(lastDoc));
@@ -77,7 +81,7 @@ export async function queryFeedItems(lastDoc?: QueryDocumentSnapshot, uid?: stri
   );
 
   return { items, lastDoc: querySnapshot.docs[querySnapshot.docs.length - 1] };
-}
+};
 
 export const createFeed = async (content: string, authorId: string) => {
   try {
@@ -92,10 +96,33 @@ export const createFeed = async (content: string, authorId: string) => {
   }
 };
 
-export async function getUserData(userId: string): Promise<UserData | null> {
+export const getUserData = async (userId: string): Promise<UserData | null> => {
   const userDoc = await getDoc(doc(firestore, "users", userId));
   if (userDoc.exists()) {
     return userDoc.data() as UserData;
   }
   return null;
-}
+};
+
+export const updateUserData = async (
+  uid: string,
+  data: { username: string; birth: string; gender: string }
+): Promise<boolean> => {
+  const { username, birth, gender } = data;
+  const userDocRef = doc(firestore, "users", uid);
+  const userDoc = await getDoc(userDocRef);
+  if (!userDoc.exists()) return false;
+
+  try {
+    await updateDoc(userDocRef, {
+      username,
+      birth,
+      gender
+    });
+  } catch (e) {
+    console.error("Error updating document: ", e);
+    return false;
+  }
+
+  return true;
+};

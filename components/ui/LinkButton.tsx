@@ -24,9 +24,6 @@ const variants = cva("text-white c", {
       sm: "py-1 px-2 text-sm",
       md: "py-2 px-3",
       lg: "py-3 px-5 text-lg"
-    },
-    rounded: {
-      true: "rounded-full"
     }
   },
   defaultVariants: {
@@ -35,9 +32,9 @@ const variants = cva("text-white c", {
   }
 });
 
-export const LinkButton = ({ href, children, size, variant, rounded, className, ...props }: LinkButtonProps) => {
+export const LinkButton = ({ href, children, size, variant, className, ...props }: LinkButtonProps) => {
   return (
-    <Link {...props} href={href} className={cn(variants({ size, variant, rounded }), className)}>
+    <Link {...props} href={href} className={cn(variants({ size, variant }), className)}>
       {children}
     </Link>
   );
