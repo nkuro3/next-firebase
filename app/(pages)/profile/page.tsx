@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { Suspense } from "react";
 import Menu from "@/components/common/menu";
-import Profile from "./profile";
+import Profile from "@/components/features/profile/profile";
 
 const ProfilePage = () => {
   return (

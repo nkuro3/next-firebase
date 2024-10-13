@@ -3,15 +3,15 @@
 import { DocumentData, QueryDocumentSnapshot } from "firebase/firestore";
 import { useEffect, useState, useCallback, useMemo } from "react";
 import { useInView } from "react-intersection-observer";
-import { DeletableFeed } from "@/app/(pages)/profile/deletable-feed";
+import { DeletableFeed } from "@/components/features/profile/deletable-feed";
 import { ITEMS_PER_PAGE } from "@/lib/constant";
-import { queryFeedItems, getUserData, FeedItem, UserData } from "@/lib/firebase/client";
+import { fetchFeedItems, getUserData, FeedItem, UserData } from "@/lib/firebase/client";
 
 type Props = {
   uid: string;
 };
 
-const MyFeeds = ({ uid }: Props) => {
+export const useMyFeeds = ({ uid }: Props) => {
   const [loading, setLoading] = useState(false);
   const [feedItems, setFeedItems] = useState<FeedItem[]>([]);
   const [users, setUsers] = useState<Record<string, UserData>>({});
@@ -34,7 +34,7 @@ const MyFeeds = ({ uid }: Props) => {
     setLoading(true);
     try {
       await new Promise((resolve) => setTimeout(resolve, 1000)); // simulate network latency
-      const { items, lastDoc: newLastDoc } = await queryFeedItems(lastDoc, uid);
+      const { items, lastDoc: newLastDoc } = await fetchFeedItems(lastDoc, uid);
       setLastDoc(newLastDoc);
       setFeedItems((prevItems) => [...prevItems, ...items]);
       setHasMore(items.length === ITEMS_PER_PAGE);
@@ -67,14 +67,5 @@ const MyFeeds = ({ uid }: Props) => {
     [feedItems, users]
   );
 
-  return (
-    <div className="max-w-2xl mx-auto border-collapse border-x border-b">
-      <div>{memoizedFeeds}</div>
-      {loading && <div className="py-10 text-gray-400 text-center">Loading more...</div>}
-      <div ref={ref}></div>
-      {!hasMore && <div className="py-10 text-gray-400 text-center">これ以上投稿はありません</div>}
-    </div>
-  );
+  return { loading, ref, hasMore, memoizedFeeds };
 };
-
-export default MyFeeds;

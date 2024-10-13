@@ -4,8 +4,8 @@ import { Trash2 } from "lucide-react";
 import { useTransition } from "react";
 import { useModal } from "@/hooks/common/use-modal";
 import { deleteFeed, FeedItem, UserData } from "@/lib/firebase/client";
-import { Button } from "../../../components/ui/button";
-import { Modal } from "../../../components/ui/modal";
+import { Button } from "../../ui/button";
+import { Modal } from "../../ui/modal";
 
 type Props = {
   feed: FeedItem;
@@ -28,7 +28,6 @@ export const DeletableFeed = ({ feed, user }: Props) => {
       onOk: async () => {
         startTransition(async () => {
           const isSuccess = await deleteFeed(feed.id);
-          await new Promise((resolve) => setTimeout(resolve, 1000)); // simulate network latency
           if (isSuccess) window.location.reload();
           closeModal();
         });

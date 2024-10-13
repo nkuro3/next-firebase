@@ -1,16 +1,28 @@
 "use client";
 
 import { Edit } from "lucide-react";
-import { useState } from "react";
+import MyFeeds from "@/components/features/profile/my-feeds";
+import EditUserForm from "@/components/forms/edit-user-form";
+import { Alert } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
-import { useFetchUser } from "@/hooks/use-fetch-user";
+import { useProfile } from "@/hooks/use-profile";
 import dayjs from "@/lib/utils/dayjs";
-import EditUserForm from "./edit-user-form";
-import MyFeeds from "./my-feeds";
 
 const Profile = () => {
-  const { user, mutate } = useFetchUser();
-  const [isOpenEditUser, setIsOpenEditUser] = useState(false);
+  const {
+    isOpenEditUser,
+    setIsOpenEditUser,
+    user,
+    alertState,
+    register,
+    handler,
+    errors,
+    pending,
+    previewImage,
+    handleImageChange,
+    handlerCloseEditUser
+  } = useProfile();
+  const editUserProps = { register, handler, errors, pending, previewImage, handleImageChange };
 
   return (
     <div>
@@ -55,16 +67,10 @@ const Profile = () => {
               {isOpenEditUser && (
                 <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black bg-opacity-50 w-full h-full z-10">
                   <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-start z-20">
-                    <EditUserForm
-                      username={user.username}
-                      gender={user.gender}
-                      birth={user.birth}
-                      update={() => {
-                        mutate();
-                        setIsOpenEditUser(false);
-                      }}
-                      onCancel={() => setIsOpenEditUser(false)}
-                    />
+                    <div className="bg-white p-7 rounded-lg border">
+                      <Alert {...alertState} />
+                      <EditUserForm onCancel={handlerCloseEditUser} {...editUserProps} />
+                    </div>
                   </div>
                 </div>
               )}

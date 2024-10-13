@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Menu from "@/components/common/menu";
-import Timeline from "./timeline";
+import Timeline from "@/components/features/timeline/timeline";
 
 const FeedListPage = () => {
   return (

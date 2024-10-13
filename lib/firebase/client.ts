@@ -17,7 +17,8 @@ import {
   Timestamp,
   where,
   updateDoc,
-  deleteDoc
+  deleteDoc,
+  Query
 } from "firebase/firestore";
 import { getStorage, connectStorageEmulator } from "firebase/storage";
 import { ITEMS_PER_PAGE } from "@/lib/constant";
@@ -64,7 +65,7 @@ export type UserData = {
 
 export type QueryFeedItemsResponse = { items: FeedItem[]; lastDoc: QueryDocumentSnapshot | undefined };
 
-export const queryFeedItems = async (
+export const fetchFeedItems = async (
   lastDoc?: QueryDocumentSnapshot,
   uid?: string
 ): Promise<QueryFeedItemsResponse> => {
@@ -82,6 +83,11 @@ export const queryFeedItems = async (
   );
 
   return { items, lastDoc: querySnapshot.docs[querySnapshot.docs.length - 1] };
+};
+
+export const queryRealtimeFeedItems = (latestCreatedAt?: Date): Query => {
+  const feedCollection = collection(firestore, "feeds");
+  return query(feedCollection, orderBy("createdAt", "asc"), startAfter(latestCreatedAt));
 };
 
 export const createFeed = async (content: string, authorId: string) => {

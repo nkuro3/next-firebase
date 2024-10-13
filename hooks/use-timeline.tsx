@@ -1,22 +1,13 @@
 "use client";
 
-import {
-  collection,
-  DocumentData,
-  onSnapshot,
-  orderBy,
-  query,
-  QueryDocumentSnapshot,
-  startAfter
-} from "firebase/firestore";
+import { DocumentData, onSnapshot, QueryDocumentSnapshot } from "firebase/firestore";
 import { useEffect, useState, useCallback, useMemo } from "react";
 import { useInView } from "react-intersection-observer";
-import { Feed } from "@/app/(pages)/timeline/feed";
-import { Button } from "@/components/ui/button";
+import { Feed } from "@/components/features/timeline/feed";
 import { ITEMS_PER_PAGE } from "@/lib/constant";
-import { queryFeedItems, getUserData, FeedItem, UserData, firestore } from "@/lib/firebase/client";
+import { fetchFeedItems, getUserData, FeedItem, UserData, queryRealtimeFeedItems } from "@/lib/firebase/client";
 
-const Timeline = () => {
+export const useTimeline = () => {
   const [loading, setLoading] = useState(false);
   const [feedItems, setFeedItems] = useState<FeedItem[]>([]);
   const [users, setUsers] = useState<Record<string, UserData>>({});
@@ -42,7 +33,7 @@ const Timeline = () => {
     setLoading(true);
     try {
       await new Promise((resolve) => setTimeout(resolve, 1000)); // simulate network latency
-      const { items, lastDoc: newLastDoc } = await queryFeedItems(lastDoc);
+      const { items, lastDoc: newLastDoc } = await fetchFeedItems(lastDoc);
       setLastDoc(newLastDoc);
       setFeedItems((prevItems) => [...prevItems, ...items]);
       setHasMore(items.length === ITEMS_PER_PAGE);
@@ -88,10 +79,8 @@ const Timeline = () => {
   useEffect(() => {
     if (!latestCreatedAt) return;
 
-    const feedCollection = collection(firestore, "feeds");
-    const feedQuery = query(feedCollection, orderBy("createdAt", "asc"), startAfter(latestCreatedAt));
-
-    const unsubscribe = onSnapshot(feedQuery, async (snapshot) => {
+    const query = queryRealtimeFeedItems(latestCreatedAt);
+    const unsubscribe = onSnapshot(query, async (snapshot) => {
       const newItems = snapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
@@ -117,23 +106,12 @@ const Timeline = () => {
     [newFeedItems, users]
   );
 
-  return (
-    <div className="max-w-2xl mx-auto border-collapse border-x border-b">
-      {!!memoizedNewFeeds.length && (
-        <div className="max-w-2xl mx-auto border-b">
-          <div className="px-5 py-3 text-center">
-            <Button variant="link" className="text-blue-500" onClick={handlerShowNewItems}>
-              Show more {memoizedNewFeeds.length} feeds
-            </Button>
-          </div>
-        </div>
-      )}
-      <div>{memoizedFeeds}</div>
-      {loading && <div className="py-10 text-gray-400 text-center">Loading more...</div>}
-      <div ref={ref}></div>
-      {!hasMore && <div className="py-10 text-gray-400 text-center">これ以上投稿はありません</div>}
-    </div>
-  );
+  return {
+    memoizedNewFeeds,
+    handlerShowNewItems,
+    memoizedFeeds,
+    loading,
+    ref,
+    hasMore
+  };
 };
-
-export default Timeline;

@@ -1,7 +1,7 @@
 "use server";
 
 import { z } from "zod";
-import { createUser, registerUserToStorage, uploadIcon } from "../firebase/server";
+import { createUser, registerUserToStorage, uploadIcon } from "@/lib/firebase/server";
 
 const schema = z
   .object({
