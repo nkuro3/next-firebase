@@ -1,7 +1,7 @@
 "use client";
 
+import { Alert } from "@/components/common/alert";
 import SignupFrom from "@/components/forms/signup-form";
-import { Alert } from "@/components/ui/alert";
 import { useSignup } from "@/hooks/use-signup";
 
 const Signup = () => {

@@ -1,7 +1,7 @@
 "use client";
 
+import { Alert } from "@/components/common/alert";
 import CreateFeedForm from "@/components/forms/create-feed-form";
-import { Alert } from "@/components/ui/alert";
 import { useCreateFeed } from "@/hooks/use-create-feed";
 
 const CreateFeed = () => {

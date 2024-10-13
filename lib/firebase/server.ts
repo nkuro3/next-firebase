@@ -27,7 +27,6 @@ export const createUser = async (email: string, password: string) => {
 
     if (!user) return false;
 
-    console.log(`Successfully created new user: ${user.uid}`);
     return user;
   } catch (error) {
     console.error("Error creating new user:", error);
@@ -37,7 +36,6 @@ export const createUser = async (email: string, password: string) => {
 export const uploadIcon = async (uid: string, buffer: Buffer) => {
   try {
     const bucket = storage.bucket();
-    console.log("Uploading icon to storage...");
     const file = bucket.file(`profileImages/${uid}`);
 
     await file.save(buffer);

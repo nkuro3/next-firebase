@@ -22,8 +22,7 @@ export function useAuth() {
 
   const signOut = useCallback(async () => {
     try {
-      await firebaseSignOut(auth);
-      await nextAuthSignOut();
+      await Promise.all([firebaseSignOut(auth), nextAuthSignOut()]);
       router.push("/login");
     } catch (e) {
       console.error("Error signing out:", e);

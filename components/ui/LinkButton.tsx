@@ -9,15 +9,15 @@ type LinkButtonProps = AnchorHTMLAttributes<HTMLAnchorElement> &
     href: string;
   };
 
-const variants = cva("text-white c", {
+const variants = cva("text-white rounded-lg", {
   variants: {
     variant: {
       primary: "bg-blue-600 hover:bg-blue-500",
       error: "bg-red-600 hover:bg-red-500",
       success: "bg-green-600 hover:bg-green-500",
-      default: "bg-gray-950 hover:bg-gray-700",
+      default: "bg-gray-950 hover:bg-gray-600",
       secondary: "bg-gray-500 hover:bg-gray-400",
-      outline: "bg-transparent border border-gray-400 hover:bg-gray-300 text-black",
+      outline: "bg-transparent border border-gray-400 hover:bg-gray-200 text-black",
       transparent: "bg-transparent hover:bg-gray-100 text-black"
     },
     size: {

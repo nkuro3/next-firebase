@@ -34,7 +34,6 @@ const EditUserForm = ({ onCancel, register, handler, errors, pending, previewIma
             {...register("profileImage", {
               validate: {
                 fileSize: (file) => {
-                  console.log(file);
                   return !file?.length || file[0].size <= 5000000 || "ファイルサイズは5MB以下にしてください。";
                 },
                 fileType: (file) => {

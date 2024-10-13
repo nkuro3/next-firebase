@@ -11,7 +11,7 @@ const Timeline = () => {
       {!!memoizedNewFeeds.length && (
         <div className="max-w-2xl mx-auto border-b">
           <div className="px-5 py-3 text-center">
-            <Button variant="link" className="text-blue-500" onClick={handlerShowNewItems}>
+            <Button link className="text-blue-500" onClick={handlerShowNewItems}>
               Show more {memoizedNewFeeds.length} feeds
             </Button>
           </div>

@@ -26,7 +26,7 @@ const Header = () => {
             </Link>
           </>
         ) : (
-          <Button className="hover:underline" variant={"link"} onClick={signOut}>
+          <Button link onClick={signOut}>
             ログアウト
           </Button>
         )}

@@ -2,10 +2,10 @@
 
 import { Trash2 } from "lucide-react";
 import { useTransition } from "react";
+import { Modal } from "@/components/common/modal";
+import { Button } from "@/components/ui/button";
 import { useModal } from "@/hooks/common/use-modal";
 import { deleteFeed, FeedItem, UserData } from "@/lib/firebase/client";
-import { Button } from "../../ui/button";
-import { Modal } from "../../ui/modal";
 
 type Props = {
   feed: FeedItem;
@@ -55,7 +55,7 @@ export const DeletableFeed = ({ feed, user }: Props) => {
             </div>
           </div>
           <div>
-            <Button variant="ghost" size="icon" onClick={handlerDelete}>
+            <Button variant="none" size="icon" onClick={handlerDelete}>
               <Trash2 size={20} color="#999" />
             </Button>
           </div>

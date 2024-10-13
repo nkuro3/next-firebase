@@ -5,7 +5,6 @@ import { FieldErrors, UseFormRegister } from "react-hook-form";
 import { SubmitButton } from "@/components/ui/submit-button";
 import { SignupInputs } from "@/hooks/use-signup";
 import { TERMS_URL } from "@/lib/constant";
-import { Input } from "../ui/input";
 
 type Props = {
   register: UseFormRegister<SignupInputs>;
@@ -36,7 +35,7 @@ const SignupFrom = ({
           <img src={previewImage} alt="Preview" className="mt-2 h-20 w-20 object-cover rounded-full border" />
         )}
         <div>
-          <Input
+          <input
             id="profileImage"
             type="file"
             accept="image/*"
@@ -45,7 +44,6 @@ const SignupFrom = ({
               required: "この項目は必須です。",
               validate: {
                 fileSize: (file) => {
-                  console.log(file);
                   return !file.length || file[0].size <= 5000000 || "ファイルサイズは5MB以下にしてください。";
                 },
                 fileType: (file) => {

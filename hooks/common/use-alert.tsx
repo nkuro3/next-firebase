@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useState } from "react";
-import { AlertProps } from "@/components/ui/alert";
+import { AlertProps } from "@/components/common/alert";
 
 type AlertOptions = {
   message: string;

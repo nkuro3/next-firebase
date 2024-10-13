@@ -26,9 +26,7 @@ export const Modal = ({ isOpen, title, message, onOk, onCancel, pending }: Modal
           </div>
           <div className="w-full mt-auto flex gap-6 justify-end">
             <form action={onOk}>
-              <SubmitButton pending={pending} className="rounded">
-                OK
-              </SubmitButton>
+              <SubmitButton pending={pending}>OK</SubmitButton>
             </form>
             {onCancel && <Button onClick={onCancel}>Cancel</Button>}
           </div>

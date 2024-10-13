@@ -1,7 +1,7 @@
 "use client";
 
+import { Alert } from "@/components/common/alert";
 import LoginFrom from "@/components/forms/login-form";
-import { Alert } from "@/components/ui/alert";
 import { useLogin } from "@/hooks/use-login";
 
 const Login = () => {

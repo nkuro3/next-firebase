@@ -2,7 +2,7 @@
 "use client";
 
 import { ReactNode, useCallback, useState } from "react";
-import { ModalProps } from "@/components/ui/modal";
+import { ModalProps } from "@/components/common/modal";
 
 export const useModal = () => {
   const [modalState, setModalState] = useState<ModalProps>({

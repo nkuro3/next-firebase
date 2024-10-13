@@ -1,9 +1,9 @@
 "use client";
 
 import { Edit } from "lucide-react";
+import { Alert } from "@/components/common/alert";
 import MyFeeds from "@/components/features/profile/my-feeds";
 import EditUserForm from "@/components/forms/edit-user-form";
-import { Alert } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { useProfile } from "@/hooks/use-profile";
 import dayjs from "@/lib/utils/dayjs";
@@ -30,7 +30,7 @@ const Profile = () => {
         <>
           <div className="max-w-2xl mx-auto border-x border-b">
             <div className="text-end p-4">
-              <Button variant={"ghost"} size={"icon"} onClick={() => setIsOpenEditUser(true)}>
+              <Button variant="none" size="icon" onClick={() => setIsOpenEditUser(true)}>
                 <Edit color="#aaa" size={26} />
               </Button>
             </div>
