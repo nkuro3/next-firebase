@@ -8,9 +8,11 @@ const Login = () => {
   const { alertState, register, handler, errors, pending } = useLogin();
   const props = { register, handler, errors, pending };
   return (
-    <div className="w-fit">
+    <div className="mx-auto max-w-120">
       <Alert {...alertState} />
-      <LoginFrom {...props} />
+      <div className="mb-10 border p-7 rounded-lg">
+        <LoginFrom {...props} />
+      </div>
     </div>
   );
 };

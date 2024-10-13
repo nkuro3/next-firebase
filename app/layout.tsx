@@ -14,7 +14,7 @@ export default function RootLayout({
       <html lang="jp">
         <body className="overscroll-y-none">
           <Header />
-          <main className="min-h-[calc(100vh-80px)] px-20">{children}</main>
+          <main className="mt-20 min-h-[calc(100vh-80px)] container">{children}</main>
           <Footer />
         </body>
       </html>

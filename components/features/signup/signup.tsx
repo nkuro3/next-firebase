@@ -9,9 +9,11 @@ const Signup = () => {
     useSignup();
   const props = { register, handler, errors, password, email, pending, previewImage, handleImageChange };
   return (
-    <div className="w-fit">
+    <div className="mx-auto max-w-120">
       <Alert {...alertState} />
-      <SignupFrom {...props} />
+      <div className="mb-10 border p-7 rounded-lg">
+        <SignupFrom {...props} />
+      </div>
     </div>
   );
 };

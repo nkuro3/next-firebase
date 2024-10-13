@@ -29,8 +29,10 @@ const SignupFrom = ({
 }: Props) => {
   return (
     <form onSubmit={handler} noValidate>
-      <label htmlFor="confirmPassword">ユーザーアイコン</label>
-      <div className="mb-[24px]">
+      <label htmlFor="confirmPassword" className="text-gray-500">
+        ユーザーアイコン
+      </label>
+      <div>
         {previewImage && (
           <img src={previewImage} alt="Preview" className="mt-2 h-20 w-20 object-cover rounded-full border" />
         )}
@@ -58,23 +60,32 @@ const SignupFrom = ({
             onChange={handleImageChange}
             className="mt-2 cursor-pointer"
           />
-          {errors.profileImage && <div>{errors.profileImage.message}</div>}
+          <div className="h-5 text-xs text-red-500">{errors.profileImage && errors.profileImage.message}</div>
         </div>
       </div>
 
       <div>
-        <label htmlFor="username">ユーザー名</label>
-        <br />
-        <input id="username" className="border" {...register("username", { required: "この項目は必須です。" })} />
-        <div className="h-[24px]">{errors.username && errors.username.message}</div>
+        <div>
+          <label htmlFor="username" className="text-gray-500">
+            ユーザー名
+          </label>
+        </div>
+        <input
+          id="username"
+          {...register("username", { required: "この項目は必須です。" })}
+          className="border w-full rounded px-2"
+        />
+        <div className="h-5 text-xs text-red-500">{errors.username && errors.username.message}</div>
       </div>
 
       <div>
-        <label htmlFor="email">メールアドレス</label>
-        <br />
+        <div>
+          <label htmlFor="email" className="text-gray-500">
+            メールアドレス
+          </label>
+        </div>
         <input
           id="email"
-          className="border"
           type="email"
           {...register("email", {
             required: "この項目は必須です。",
@@ -83,71 +94,86 @@ const SignupFrom = ({
               message: "正しいメールアドレスを入力してください。"
             }
           })}
+          className="border w-full rounded px-2"
         />
-        <div className="h-[24px]">{errors.email && errors.email.message}</div>
+        <div className="h-5 text-xs text-red-500">{errors.email && errors.email.message}</div>
       </div>
 
       <div>
-        <label htmlFor="confirmEmail">メールアドレス（確認）</label>
-        <br />
+        <div>
+          <label htmlFor="confirmEmail" className="text-gray-500">
+            メールアドレス（確認）
+          </label>
+        </div>
         <input
           id="confirmEmail"
-          className="border"
           type="email"
           {...register("confirmEmail", {
             required: "この項目は必須です。",
             validate: (value) => value === email || "メールアドレスが一致しません。"
           })}
+          className="border w-full rounded px-2"
         />
-        <div className="h-[24px]">{errors.confirmEmail && errors.confirmEmail.message}</div>
+        <div className="h-5 text-xs text-red-500">{errors.confirmEmail && errors.confirmEmail.message}</div>
       </div>
 
       <div>
-        <label htmlFor="password">パスワード</label>
-        <br />
+        <div>
+          <label htmlFor="password" className="text-gray-500">
+            パスワード
+          </label>
+        </div>
         <input
+          id="password"
           type="password"
-          className="border"
           {...register("password", {
             required: "この項目は必須です。",
             minLength: { value: 8, message: "パスワードは8文字以上で設定してください。" }
           })}
+          className="border w-full rounded px-2"
         />
-        <div className="h-[24px]">{errors.password && errors.password.message}</div>
+        <div className="h-5 text-xs text-red-500">{errors.password && errors.password.message}</div>
       </div>
 
       <div>
-        <label htmlFor="confirmPassword">パスワード（確認）</label>
-        <br />
+        <div>
+          <label htmlFor="confirmPassword" className="text-gray-500">
+            パスワード（確認）
+          </label>
+        </div>
         <input
+          id="confirmPassword"
           type="password"
-          className="border"
           {...register("confirmPassword", {
             required: "この項目は必須です。",
             validate: (value) => value === password || "パスワードと一致しません。"
           })}
+          className="border w-full rounded px-2"
         />
-        <div className="h-[24px]">{errors.confirmPassword && errors.confirmPassword.message}</div>
+        <div className="h-5 text-xs text-red-500">{errors.confirmPassword && errors.confirmPassword.message}</div>
       </div>
 
       <div>
-        <label htmlFor="birth">誕生日</label>
-        <br />
+        <div>
+          <label htmlFor="birth" className="text-gray-500">
+            誕生日
+          </label>
+        </div>
         <input
           id="birth"
           type="date"
-          className="border hover:cursor-pointer"
+          className="border rounded cursor-pointer px-2"
           {...register("birth", { required: "この項目は必須です。" })}
         />
-        <div className="h-[24px]">{errors.birth && errors.birth.message}</div>
+        <div className="h-5 text-xs text-red-500">{errors.birth && errors.birth.message}</div>
       </div>
 
       <div>
-        <div>性別</div>
+        <div className="text-gray-500">性別</div>
         <div className="flex gap-3">
           <div>
             <input id="male" type="radio" value="male" {...register("gender", { required: "この項目は必須です。" })} />
-            <label htmlFor="male" className="hover:cursor-pointer">
+            <label htmlFor="male" className="cursor-pointer">
               男性
             </label>
           </div>
@@ -160,7 +186,7 @@ const SignupFrom = ({
                 required: "この項目は必須です。"
               })}
             />
-            <label htmlFor="female" className="hover:cursor-pointer">
+            <label htmlFor="female" className="cursor-pointer">
               女性
             </label>
           </div>
@@ -171,12 +197,12 @@ const SignupFrom = ({
               value="other"
               {...register("gender", { required: "この項目は必須です。" })}
             />
-            <label htmlFor="other" className="hover:cursor-pointer">
+            <label htmlFor="other" className="cursor-pointer">
               その他
             </label>
           </div>
         </div>
-        <div className="h-[24px]">{errors.gender && errors.gender.message}</div>
+        <div className="h-5 text-xs text-red-500">{errors.gender && errors.gender.message}</div>
       </div>
 
       <div>
@@ -187,14 +213,14 @@ const SignupFrom = ({
             className="border"
             {...register("isAgreeTerms", { required: "この項目は必須です。" })}
           />
-          <label htmlFor="isAgreeTerms" className="ml-3 hover:cursor-pointer">
+          <label htmlFor="isAgreeTerms" className="ml-3 cursor-pointer">
             <Link href={TERMS_URL} className="text-gray-700 underline">
               利用規約
             </Link>
             に同意します。
           </label>
         </div>
-        <div className="h-[24px]">{errors.isAgreeTerms && errors.isAgreeTerms.message}</div>
+        <div className="h-5 text-xs text-red-500">{errors.isAgreeTerms && errors.isAgreeTerms.message}</div>
       </div>
       <div className="mt-5 text-right">
         <SubmitButton pending={pending}>サインアップ</SubmitButton>

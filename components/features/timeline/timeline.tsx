@@ -7,7 +7,7 @@ const Timeline = () => {
   const { memoizedNewFeeds, handlerShowNewItems, memoizedFeeds, loading, ref, hasMore } = useTimeline();
 
   return (
-    <div className="max-w-2xl mx-auto border-collapse border-x border-b">
+    <div className="max-w-2xl mx-auto border-x border-b ">
       {!!memoizedNewFeeds.length && (
         <div className="max-w-2xl mx-auto border-b">
           <div className="px-5 py-3 text-center">

@@ -26,7 +26,7 @@ const buttonVariants = cva("text-white rounded-lg", {
       sm: "py-1 px-2 text-sm",
       md: "py-2 px-3",
       lg: "py-3 px-5 text-lg",
-      icon: "h-8 w-8"
+      icon: ""
     }
   },
   defaultVariants: {
@@ -45,10 +45,10 @@ export const Button = ({ children, className, variant, size, disabled, link, ...
           "bg-gray-500 hover:bg-gray-500 cursor-default": !link && disabled
         },
         {
-          "px-1 py-0 bg-transparent hover:bg-transparent hover:underline text-black cursor-pointer": link && !disabled
+          "p-0 bg-transparent hover:bg-transparent hover:underline text-black cursor-pointer": link && !disabled
         },
         {
-          "px-1 py-0 bg-transparent hover:bg-transparent text-gray-400 cursor-default": link && disabled
+          "p-0 bg-transparent hover:bg-transparent text-gray-400 cursor-default": link && disabled
         },
         className
       )}

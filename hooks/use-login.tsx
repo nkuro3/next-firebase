@@ -1,6 +1,7 @@
 "use client";
 
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { useRouter } from "next/navigation";
 import { useTransition } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useAlert } from "@/hooks/common/use-alert";
@@ -13,6 +14,7 @@ export type LoginInputs = {
 };
 
 export const useLogin = () => {
+  const router = useRouter();
   const [pending, startTransition] = useTransition();
   const { alertState, showAlert } = useAlert();
   const {
@@ -31,10 +33,14 @@ export const useLogin = () => {
         return;
       }
       const isSuccess = await loginAction({ idToken });
+
       if (!isSuccess) {
         showAlert({ message: "ログインできませんでした。" });
         reset();
+        return;
       }
+
+      router.push("/timeline");
     });
   };
 

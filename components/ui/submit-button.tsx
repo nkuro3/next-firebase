@@ -14,9 +14,9 @@ type Props = ButtonHTMLAttributes<HTMLButtonElement> &
 const variants = cva("text-white rounded-lg", {
   variants: {
     size: {
-      sm: "py-1 px-2 text-sm",
-      md: "py-2 px-3",
-      lg: "py-3 px-5 text-lg",
+      sm: "h-5 w-5",
+      md: "h-6 w-6",
+      lg: "h-7 w-7",
       icon: "h-8 w-8"
     }
   },
@@ -25,16 +25,21 @@ const variants = cva("text-white rounded-lg", {
   }
 });
 
-export const SubmitButton = ({ children, pending, size, className, ...props }: Props): JSX.Element => {
+export const SubmitButton = ({ children, pending, className, size, ...props }: Props): JSX.Element => {
   return (
     <Button type="submit" disabled={pending} className={className} {...props}>
       {!pending ? (
         children
       ) : (
-        <div className={cn(variants({ size }))}>
+        <>
           <div className="h-0 opacity-0">{children}</div>
-          <div className="animate-spin rounded-full border-t-transparent h-4 w-4 border-2 border-white mx-auto"></div>
-        </div>
+          <div
+            className={cn(
+              "animate-spin !rounded-full !border-t-transparent border-2 border-white mx-auto",
+              variants({ size })
+            )}
+          ></div>
+        </>
       )}
     </Button>
   );

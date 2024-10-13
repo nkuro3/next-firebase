@@ -21,7 +21,7 @@ export const loginAction = async (args: Schema) => {
 
   const { idToken } = validatedFields.data;
 
-  await signIn("credentials", { idToken, redirectTo: "/timeline" });
+  await signIn("credentials", { idToken, redirect: false });
 
   return true;
 };

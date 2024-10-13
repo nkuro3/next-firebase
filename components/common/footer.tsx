@@ -8,7 +8,7 @@ import { Logo } from "./logo";
 const Footer = () => {
   const { user } = useAuth();
   return (
-    <footer className="mt-5 p-10 h-80 border border-t flex flex-col items-center justify-center z-10">
+    <footer className="p-10 h-80 border border-t flex flex-col items-center justify-center z-10">
       <div className="mb-10">
         <Link className="flex items-center" href={user ? "/timeline" : "/"}>
           <Logo />

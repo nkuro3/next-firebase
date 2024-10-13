@@ -19,8 +19,10 @@ const EditUserForm = ({ onCancel, register, handler, errors, pending, previewIma
   return (
     <form onSubmit={handler} noValidate>
       <div className="mb-3 text-xs text-gray-400">更新する項目のみ入力してください</div>
-      <label htmlFor="confirmPassword">ユーザーアイコン</label>
-      <div className="mb-[24px]">
+      <label htmlFor="confirmPassword" className="text-gray-500">
+        ユーザーアイコン
+      </label>
+      <div>
         {previewImage && (
           <img src={previewImage} alt="Preview" className="mt-2 h-20 w-20 object-cover rounded-full border" />
         )}
@@ -48,37 +50,37 @@ const EditUserForm = ({ onCancel, register, handler, errors, pending, previewIma
             onChange={handleImageChange}
             className="mt-2 cursor-pointer"
           />
-          {errors.profileImage && <div>{errors.profileImage.message}</div>}
+          <div className="h-5 text-xs text-red-500">{errors.profileImage && errors.profileImage.message}</div>
         </div>
       </div>
 
       <div>
-        <div className="grid grid-cols-3 mb-3">
-          <div className="col-span-1">ユーザー名</div>
+        <div className="grid grid-cols-3 mb-5">
+          <div className="col-span-1 text-gray-500">ユーザー名</div>
           <div className="col-span-2">
-            <input id="username" className="border w-full" {...register("username")} />
+            <input id="username" className="border w-full px-2" {...register("username")} />
           </div>
         </div>
 
-        <div className="grid grid-cols-3 mb-3">
-          <div className="col-span-1">性別</div>
+        <div className="grid grid-cols-3 mb-5">
+          <div className="col-span-1 text-gray-500">性別</div>
           <div className="col-span-2">
             <div className="flex justify-between">
               <div>
                 <input id="male" type="radio" value="male" {...register("gender")} />
-                <label htmlFor="male" className="hover:cursor-pointer">
+                <label htmlFor="male" className="cursor-pointer">
                   男性
                 </label>
               </div>
               <div>
                 <input id="female" type="radio" value="female" {...register("gender")} />
-                <label htmlFor="female" className="hover:cursor-pointer">
+                <label htmlFor="female" className="cursor-pointer">
                   女性
                 </label>
               </div>
               <div>
                 <input id="other" type="radio" value="other" {...register("gender")} />
-                <label htmlFor="other" className="hover:cursor-pointer">
+                <label htmlFor="other" className="cursor-pointer">
                   その他
                 </label>
               </div>
@@ -87,9 +89,9 @@ const EditUserForm = ({ onCancel, register, handler, errors, pending, previewIma
         </div>
 
         <div className="grid grid-cols-3">
-          <div className="col-span-1">誕生日</div>
+          <div className="col-span-1 text-gray-500">誕生日</div>
           <div className="col-span-2">
-            <input id="birth" type="date" className="border hover:cursor-pointer" {...register("birth")} />
+            <input id="birth" type="date" className="border cursor-pointer px-2" {...register("birth")} />
           </div>
         </div>
       </div>

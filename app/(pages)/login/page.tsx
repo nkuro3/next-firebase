@@ -4,7 +4,7 @@ import Login from "@/components/features/login/login";
 const LoginPage = () => {
   return (
     <div>
-      <h1 className="my-10">ログイン</h1>
+      <h1 className="py-10">ログイン</h1>
       <Login />
     </div>
   );

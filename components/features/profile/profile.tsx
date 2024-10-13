@@ -49,17 +49,17 @@ const Profile = () => {
               <div className="flex">
                 <div className="grow">
                   <div className="grid grid-cols-3 mb-3">
-                    <div className="col-span-1">メールアドレス</div>
+                    <div className="col-span-3 sm:col-span-1 text-gray-500">メールアドレス</div>
                     <div className="col-span-2">{user.email}</div>
                   </div>
                   <div className="grid grid-cols-3 mb-3">
-                    <div className="col-span-1">性別</div>
+                    <div className="col-span-3 sm:col-span-1 text-gray-500">性別</div>
                     <div className="col-span-2">
                       {user.gender === "male" ? "男性" : user.gender === "female" ? "女性" : "その他"}
                     </div>
                   </div>
                   <div className="grid grid-cols-3">
-                    <div className="col-span-1">誕生日</div>
+                    <div className="col-span-3 sm:col-span-1 text-gray-500">誕生日</div>
                     <div className="col-span-2">{dayjs(user.birth).format("YYYY年MM月DD日")}</div>
                   </div>
                 </div>
@@ -67,7 +67,7 @@ const Profile = () => {
               {isOpenEditUser && (
                 <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black bg-opacity-50 w-full h-full z-10">
                   <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-start z-20">
-                    <div className="bg-white p-7 rounded-lg border">
+                    <div className="bg-white p-7 rounded-lg border max-w-[92%] mx-auto">
                       <Alert {...alertState} />
                       <EditUserForm onCancel={handlerCloseEditUser} {...editUserProps} />
                     </div>

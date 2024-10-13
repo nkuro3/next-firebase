@@ -4,7 +4,7 @@ import Signup from "@/components/features/signup/signup";
 const SignupPage = () => {
   return (
     <div>
-      <h1 className="my-10">サインアップ</h1>
+      <h1 className="py-10">サインアップ</h1>
       <Signup />
     </div>
   );

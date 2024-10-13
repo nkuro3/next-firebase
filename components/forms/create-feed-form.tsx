@@ -18,7 +18,7 @@ const CreateFeedForm = ({ numOfCharacters, handlerSetNumOfCharacters, register, 
   return (
     <form onSubmit={handler} noValidate>
       <div>
-        <div className="flex justify-between">
+        <div className="flex justify-between text-gray-500">
           <label htmlFor="content">内容</label>
           <div>
             <span className={numOfCharacters > MAX_CHARACTERS ? "text-red-500" : ""}>{numOfCharacters}</span> /{" "}
@@ -27,20 +27,20 @@ const CreateFeedForm = ({ numOfCharacters, handlerSetNumOfCharacters, register, 
         </div>
         <textarea
           id="content"
-          className="border rounded w-120 h-32"
+          className="border rounded w-full h-32 p-2"
           {...register("content", {
             required: "この項目は必須です。",
             maxLength: { value: MAX_CHARACTERS, message: `${MAX_CHARACTERS}文字以内で入力してください。` }
           })}
           onChange={handlerSetNumOfCharacters}
         />
+        <div className="h-5 text-xs text-red-500">{errors.content && errors.content.message}</div>
       </div>
-      <div className="mt-5 text-right">
+      <div className="text-right">
         <SubmitButton pending={pending} disabled={numOfCharacters > MAX_CHARACTERS || numOfCharacters === 0}>
           送信
         </SubmitButton>
       </div>
-      <div>{errors.content && errors.content.message}</div>
     </form>
   );
 };
