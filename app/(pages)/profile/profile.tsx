@@ -7,11 +7,9 @@ import { useFetchUser } from "@/hooks/use-fetch-user";
 import dayjs from "@/lib/utils/dayjs";
 import EditUserForm from "./edit-user-form";
 import MyFeeds from "./my-feeds";
-import NewFeedForm from "./new-feed-form";
 
 const Profile = () => {
   const { user, mutate } = useFetchUser();
-  const [isOpenNewFeed, setIsOpenNewFeed] = useState(false);
   const [isOpenEditUser, setIsOpenEditUser] = useState(false);
 
   return (
@@ -71,18 +69,8 @@ const Profile = () => {
                 </div>
               )}
             </div>
-            <div className="px-5 py-3 border-t flex items-center justify-between">
+            <div className="px-5 py-3 border-t">
               <div className="font-semibold">Past Feeds</div>
-              <Button size={"sm"} onClick={() => setIsOpenNewFeed(true)}>
-                New Feed
-              </Button>
-              {isOpenNewFeed && (
-                <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black bg-opacity-50 w-full h-full z-10">
-                  <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-start z-20">
-                    <NewFeedForm onCancel={() => setIsOpenNewFeed(false)} />
-                  </div>
-                </div>
-              )}
             </div>
           </div>
           <MyFeeds uid={user.uid} />

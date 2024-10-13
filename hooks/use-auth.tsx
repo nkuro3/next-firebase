@@ -2,6 +2,7 @@
 
 import { onAuthStateChanged, User, signOut as firebaseSignOut } from "firebase/auth";
 import { useRouter } from "next/navigation";
+import { signOut as nextAuthSignOut } from "next-auth/react";
 import { useCallback, useEffect, useState } from "react";
 import { auth } from "@/lib/firebase/client";
 
@@ -22,6 +23,7 @@ export function useAuth() {
   const signOut = useCallback(async () => {
     try {
       await firebaseSignOut(auth);
+      await nextAuthSignOut();
       router.push("/login");
     } catch (e) {
       console.error("Error signing out:", e);

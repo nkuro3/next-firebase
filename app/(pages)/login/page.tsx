@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import LoginForm from "./login-form";
+import LoginForm from "@/components/features/login/login";
 
 const LoginPage = () => {
   return (

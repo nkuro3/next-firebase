@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { SessionProvider } from "next-auth/react";
 import Footer from "@/components/common/footer";
 import Header from "@/components/common/header";
 
@@ -9,13 +10,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="jp">
-      <body className="overscroll-y-none">
-        <Header />
-        <main className="min-h-[calc(100vh-80px)] px-20">{children}</main>
-        <Footer />
-      </body>
-    </html>
+    <SessionProvider>
+      <html lang="jp">
+        <body className="overscroll-y-none">
+          <Header />
+          <main className="min-h-[calc(100vh-80px)] px-20">{children}</main>
+          <Footer />
+        </body>
+      </html>
+    </SessionProvider>
   );
 }
 

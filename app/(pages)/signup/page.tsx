@@ -1,11 +1,11 @@
 import { Metadata } from "next";
-import SignupForm from "./signup-form";
+import Signup from "@/components/features/signup/signup";
 
 const SignupPage = () => {
   return (
     <div>
       <h1 className="my-10">サインアップ</h1>
-      <SignupForm />
+      <Signup />
     </div>
   );
 };

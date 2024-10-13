@@ -113,7 +113,7 @@ const createTestUsers = async () => {
       const { user } = await createUserWithEmailAndPassword(auth, testUser.email, testUser.password);
       const downloadURL = await uploadProfileImage(user.uid, testUser.imagePath);
       await saveUserToFirestore(user.uid, testUser, downloadURL);
-      Array.from({ length: 10 }).forEach(() => createFeed(user.uid));
+      await Promise.all(Array.from({ length: 10 }).map(() => createFeed(user.uid)));
       console.log(`User ${user.uid} saved to Firestore.`);
     } catch (error) {
       console.error("Failed to save user to Firestore:", error);
@@ -125,8 +125,6 @@ const createTestUsers = async () => {
       await signup(user);
     })
   );
-
-  await new Promise((resolve) => setTimeout(resolve, 3000));
 
   process.exit(0);
 };

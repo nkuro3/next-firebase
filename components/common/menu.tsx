@@ -6,7 +6,7 @@ const Menu = () => {
       <div className="fixed p-7">
         <div className="flex flex-col">
           <LinkButton href="/timeline" variant="transparent" className="font-bold rounded-full">
-            ホーム
+            タイムライン
           </LinkButton>
           <LinkButton href="/profile" variant="transparent" className="font-bold rounded-full">
             プロフィール

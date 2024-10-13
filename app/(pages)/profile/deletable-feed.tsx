@@ -2,7 +2,7 @@
 
 import { Trash2 } from "lucide-react";
 import { useTransition } from "react";
-import { useModal } from "@/hooks/use-modal";
+import { useModal } from "@/hooks/common/use-modal";
 import { deleteFeed, FeedItem, UserData } from "@/lib/firebase/client";
 import { Button } from "../../../components/ui/button";
 import { Modal } from "../../../components/ui/modal";
