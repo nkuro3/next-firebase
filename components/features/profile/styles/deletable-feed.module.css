@@ -1,5 +1,5 @@
 .feedContainer {
-  @apply p-6;
+  @apply p-6 border -mb-[1px];
 }
 
 .headerContainer {

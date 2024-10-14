@@ -57,16 +57,19 @@ export const useTimeline = () => {
   }, [inView, hasMore, loadMoreFeed]);
 
   const memoizedFeeds = useMemo(
-    () =>
-      feedItems
-        .map((feed) =>
-          users[feed.authorId] ? (
-            <div key={feed.id} className="border-b">
-              <Feed feed={feed} user={users[feed.authorId]} />
-            </div>
-          ) : null
-        )
-        .filter(Boolean),
+    () => (
+      <>
+        {feedItems
+          .map((feed) =>
+            users[feed.authorId] ? (
+              <div key={feed.id}>
+                <Feed feed={feed} user={users[feed.authorId]} />
+              </div>
+            ) : null
+          )
+          .filter(Boolean)}
+      </>
+    ),
     [feedItems, users]
   );
 

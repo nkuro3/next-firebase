@@ -1,5 +1,5 @@
 .timelineContainer {
-  @apply max-w-2xl mx-auto border-x border-b;
+  @apply max-w-2xl mx-auto;
 }
 
 .newFeedsContainer {

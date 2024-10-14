@@ -11,5 +11,5 @@
 }
 
 .submitContainer {
-  @apply text-center;
+  @apply text-right;
 }

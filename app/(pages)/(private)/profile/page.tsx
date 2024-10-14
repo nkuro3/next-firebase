@@ -6,7 +6,11 @@ const ProfilePage = () => {
   return (
     <div>
       <h1 className="h-0 opacity-0">マイページ</h1>
-      <Suspense fallback={<div>loading...</div>}>
+      <Suspense
+        fallback={
+          <div className="min-h-[calc(100vh-80px)] flex items-center justify-center text-gray-400">Loading...</div>
+        }
+      >
         <Profile />
       </Suspense>
     </div>

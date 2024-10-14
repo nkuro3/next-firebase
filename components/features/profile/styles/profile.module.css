@@ -1,5 +1,5 @@
 .profileContainer {
-  @apply max-w-2xl mx-auto border-x border-b;
+  @apply max-w-2xl mx-auto border-x;
 }
 
 .editButtonContainer {
@@ -26,10 +26,6 @@
   @apply mb-5;
 }
 
-.profileDetails {
-  @apply flex;
-}
-
 .detailRow {
   @apply grid grid-cols-3 mb-3;
 }
@@ -51,5 +47,5 @@
 }
 
 .pastFeedsHeader {
-  @apply px-5 py-3 border-t font-semibold;
+  @apply px-5 py-3 border-y -mb-[1px] font-semibold;
 }

@@ -51,5 +51,5 @@
 }
 
 .toggleButton {
-  @apply flex justify-center my-auto self-center;
+  @apply flex justify-center my-auto self-center w-[32px];
 }

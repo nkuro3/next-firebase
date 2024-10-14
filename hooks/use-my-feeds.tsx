@@ -58,7 +58,7 @@ export const useMyFeeds = ({ uid }: Props) => {
       feedItems
         .map((feed) =>
           users[feed.authorId] ? (
-            <div key={feed.id} className="border-b">
+            <div key={feed.id}>
               <DeletableFeed feed={feed} user={users[feed.authorId]} />
             </div>
           ) : null
