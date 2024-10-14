@@ -1,0 +1,31 @@
+.feedContainer {
+  @apply p-6;
+}
+
+.headerContainer {
+  @apply flex;
+}
+
+.userContainer {
+  @apply grow flex space-x-4;
+}
+
+.avatar {
+  @apply w-10 h-10 rounded-full border;
+}
+
+.userInfo {
+  @apply w-full;
+}
+
+.username {
+  @apply font-bold;
+}
+
+.content {
+  @apply my-3;
+}
+
+.timestamp {
+  @apply text-sm text-gray-500 text-end;
+}

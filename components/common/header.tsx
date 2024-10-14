@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { Logo } from "@/components/common/logo";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/hooks/use-auth";
+import styles from "./styles/header.module.css";
 
 const Header = () => {
   const pathname = usePathname();
@@ -18,63 +19,64 @@ const Header = () => {
   }, [pathname]);
 
   return (
-    <header className="fixed w-full top-0 min-h-20 px-5 bg-white shadow border-gray-200 z-10">
-      <div className="flex justify-between items-center h-20">
+    <header className={styles.headerContainer}>
+      <div className={styles.headerContent}>
         <Link href={user ? "/timeline" : "/"}>
           <Logo />
         </Link>
-        <div className="hidden lg:flex items-center space-x-4 text-gray-500">
+        <div className={styles.desktopMenu}>
           {!user ? (
             <>
-              <Link className="hover:underline" href="/login">
+              <Link className={styles.link} href="/login">
                 ログイン
               </Link>
-              <Link className="hover:underline" href="/signup">
+              <Link className={styles.link} href="/signup">
                 サインアップ
               </Link>
             </>
           ) : (
-            <Button link onClick={signOut} className="text-gray-500">
+            <Button link onClick={signOut} className={styles.logoutButton}>
               ログアウト
             </Button>
           )}
         </div>
-        <div className="lg:hidden flex flex-col items-end">
-          <div className="flex items-center">
-            <Button
-              variant="none"
-              size="icon"
-              onClick={() => {
-                setIsOpenMenu(!isOpenMenu);
-              }}
-              className="flex"
-            >
-              <Menu size={32} color="#777" />
-            </Button>
-          </div>
+        <div className={styles.mobileMenuButton}>
+          <Button
+            variant="none"
+            size="icon"
+            onClick={() => {
+              setIsOpenMenu(!isOpenMenu);
+            }}
+          >
+            <Menu size={32} color="#777" />
+          </Button>
         </div>
       </div>
-      <div className="flex items-center lg:hidden">
-        <div
-          className={`overflow-hidden transition-all duration-0 w-full ${isOpenMenu ? "max-h-40 duration-500" : "max-h-0"}`}
-        >
-          <div className="mb-5 flex justify-between text-gray-500">
-            <div className="flex flex-col space-y-2">
+      <div className={styles.mobileMenuContainer}>
+        <div className={`${styles.mobileMenu} ${isOpenMenu ? styles.mobileMenuOpen : styles.mobileMenuClosed}`}>
+          <div className={styles.mobileMenuContent}>
+            <div className={styles.mobileLinksContainer}>
               {!user ? (
                 <>
-                  <Link className="hover:underline" href="/login">
+                  <Link className={styles.link} href="/login">
                     ログイン
                   </Link>
-                  <Link className="hover:underline" href="/signup">
+                  <Link className={styles.link} href="/signup">
                     サインアップ
                   </Link>
                 </>
               ) : (
                 <>
-                  <Link href="/timeline">タイムライン</Link>
-                  <Link href="/profile">プロフィール</Link>
-                  <Link href="/create-feed">投稿する</Link>
-                  <Button link onClick={signOut} className="text-start text-gray-500">
+                  <Link className={styles.link} href="/timeline">
+                    タイムライン
+                  </Link>
+                  <Link className={styles.link} href="/profile">
+                    プロフィール
+                  </Link>
+                  <Link className={styles.link} href="/create-feed">
+                    投稿する
+                  </Link>
+                  <Button link onClick={signOut} className={styles.logoutButtonMobile}>
                     ログアウト
                   </Button>
                 </>
@@ -86,13 +88,9 @@ const Header = () => {
               onClick={() => {
                 setIsOpenMenu(!isOpenMenu);
               }}
-              className="flex justify-center my-atuo self-center"
+              className={styles.toggleButton}
             >
-              {isOpenMenu ? (
-                <ChevronUp size={20} color="#aaa" className="my-auto w-8" />
-              ) : (
-                <ChevronDown size={20} color="#aaa" className="my-auto w-8" />
-              )}
+              {isOpenMenu ? <ChevronUp size={20} color="#aaa" /> : <ChevronDown size={20} color="#aaa" />}
             </Button>
           </div>
         </div>

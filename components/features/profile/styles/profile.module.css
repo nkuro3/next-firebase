@@ -1,0 +1,55 @@
+.profileContainer {
+  @apply max-w-2xl mx-auto border-x border-b;
+}
+
+.editButtonContainer {
+  @apply text-end p-4;
+}
+
+.profileHeader {
+  @apply flex justify-center gap-5;
+}
+
+.avatar {
+  @apply w-20 h-20 rounded-full border;
+}
+
+.username {
+  @apply my-auto text-4xl;
+}
+
+.profileDetailsContainer {
+  @apply m-10 p-5 border rounded-xl;
+}
+
+.profileTitle {
+  @apply mb-5;
+}
+
+.profileDetails {
+  @apply flex;
+}
+
+.detailRow {
+  @apply grid grid-cols-3 mb-3;
+}
+
+.detailLabel {
+  @apply col-span-3 sm:col-span-1 text-gray-500;
+}
+
+.detailValue {
+  @apply col-span-2;
+}
+
+.editUserOverlay {
+  @apply fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black bg-opacity-50 w-full h-full z-10;
+}
+
+.editUserModal {
+  @apply fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-start z-20 bg-white p-7 rounded-lg border max-w-[92%] mx-auto;
+}
+
+.pastFeedsHeader {
+  @apply px-5 py-3 border-t font-semibold;
+}

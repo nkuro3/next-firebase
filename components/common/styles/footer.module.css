@@ -1,0 +1,19 @@
+.footerContainer {
+  @apply p-10 h-80 border border-t flex flex-col items-center justify-center z-10;
+}
+
+.logoContainer {
+  @apply mb-10;
+}
+
+.linksContainer {
+  @apply mb-10 flex flex-col items-center md:flex-row md:divide-x;
+}
+
+.link {
+  @apply flex items-center;
+}
+
+.linkItem {
+  @apply px-3 py-1 hover:underline;
+}

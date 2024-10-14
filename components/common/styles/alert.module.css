@@ -1,0 +1,39 @@
+.alertBase {
+  @apply flex items-center p-4 mb-4 rounded-lg;
+}
+
+.info {
+  @apply text-blue-800 bg-blue-100;
+}
+
+.error {
+  @apply text-red-800 bg-red-100;
+}
+
+.success {
+  @apply text-green-800 bg-green-100;
+}
+
+.warning {
+  @apply text-yellow-800 bg-yellow-100;
+}
+
+.default {
+  @apply text-gray-800 bg-gray-100;
+}
+
+.icon {
+  @apply flex-shrink-0 w-4 h-4;
+}
+
+.message {
+  @apply ms-3 text-sm font-medium;
+}
+
+.closeButton {
+  @apply ms-auto -mx-1.5 -my-1.5 rounded-lg p-1.5 inline-flex items-center justify-center h-8 w-8;
+}
+
+.closeIcon {
+  @apply w-3 h-3;
+}

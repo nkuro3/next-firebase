@@ -1,0 +1,27 @@
+.spinner {
+  @apply text-white rounded-lg;
+}
+
+.sizeSm {
+  @apply h-5 w-5;
+}
+
+.sizeMd {
+  @apply h-6 w-6;
+}
+
+.sizeLg {
+  @apply h-7 w-7;
+}
+
+.sizeIcon {
+  @apply h-8 w-8;
+}
+
+.hiddenChildren {
+  @apply h-0 opacity-0;
+}
+
+.spinnerBase {
+  @apply animate-spin !rounded-full !border-t-transparent border-2 border-white mx-auto;
+}

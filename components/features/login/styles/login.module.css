@@ -1,0 +1,7 @@
+.container {
+  @apply mx-auto max-w-120;
+}
+
+.formContainer {
+  @apply mb-10 border p-7 rounded-lg;
+}

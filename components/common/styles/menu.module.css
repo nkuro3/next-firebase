@@ -1,0 +1,7 @@
+.menuContainer {
+  @apply flex flex-col;
+}
+
+.linkButton {
+  @apply font-bold rounded-full;
+}

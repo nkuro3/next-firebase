@@ -1,4 +1,5 @@
 import Menu from "@/components/common/menu";
+import styles from "./styles/layout.module.css";
 
 type Props = {
   children: React.ReactNode;
@@ -7,7 +8,7 @@ type Props = {
 const Layout = ({ children }: Readonly<Props>) => {
   return (
     <>
-      <div className="hidden lg:block fixed p-7">
+      <div className={styles.menuContainer}>
         <Menu />
       </div>
       {children}

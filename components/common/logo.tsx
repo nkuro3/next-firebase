@@ -1,3 +1,12 @@
 export const Logo = () => {
-  return <div className="text-2xl">みんなの掲示板</div>;
+  return (
+    <div
+      style={{
+        fontSize: "1.5rem",
+        lineHeight: "2rem"
+      }}
+    >
+      みんなの掲示板
+    </div>
+  );
 };

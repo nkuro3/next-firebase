@@ -1,0 +1,11 @@
+.container {
+  @apply max-w-2xl mx-auto border-x border-b;
+}
+
+.loadingText {
+  @apply py-10 text-gray-400 text-center;
+}
+
+.noMoreText {
+  @apply py-10 text-gray-400 text-center;
+}

@@ -1,15 +1,16 @@
-import { LinkButton } from "../ui/LinkButton";
+import { LinkButton } from "../ui/link-button";
+import styles from "./styles/menu.module.css";
 
 const Menu = () => {
   return (
-    <div className="flex flex-col">
-      <LinkButton href="/timeline" variant="transparent" className="font-bold rounded-full">
+    <div className={styles.menuContainer}>
+      <LinkButton href="/timeline" variant="transparent" className={styles.linkButton}>
         タイムライン
       </LinkButton>
-      <LinkButton href="/profile" variant="transparent" className="font-bold rounded-full">
+      <LinkButton href="/profile" variant="transparent" className={styles.linkButton}>
         プロフィール
       </LinkButton>
-      <LinkButton href="/create-feed" variant="transparent" className="font-bold rounded-full">
+      <LinkButton href="/create-feed" variant="transparent" className={styles.linkButton}>
         投稿する
       </LinkButton>
     </div>

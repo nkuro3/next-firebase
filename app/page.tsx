@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { LinkButton } from "@/components/ui/LinkButton";
+import { LinkButton } from "@/components/ui/link-button";
 
 export default function Home() {
   return (

@@ -1,0 +1,23 @@
+.flexLabelContainer {
+  @apply flex justify-between text-gray-500;
+}
+
+.label {
+  @apply text-gray-500;
+}
+
+.textarea {
+  @apply border rounded w-full h-32 p-2;
+}
+
+.errorText {
+  @apply h-5 text-xs text-red-500;
+}
+
+.overLimit {
+  @apply text-red-500;
+}
+
+.buttonContainer {
+  @apply text-right;
+}

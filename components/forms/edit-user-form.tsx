@@ -4,6 +4,7 @@ import { FieldErrors, UseFormRegister } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { SubmitButton } from "@/components/ui/submit-button";
 import { EditUserInputs } from "@/hooks/use-profile";
+import styles from "./styles/edit-user-form.module.css";
 
 type Props = {
   onCancel: () => void;
@@ -18,14 +19,12 @@ type Props = {
 const EditUserForm = ({ onCancel, register, handler, errors, pending, previewImage, handleImageChange }: Props) => {
   return (
     <form onSubmit={handler} noValidate>
-      <div className="mb-3 text-xs text-gray-400">更新する項目のみ入力してください</div>
-      <label htmlFor="confirmPassword" className="text-gray-500">
+      <div className={styles.instructionText}>更新する項目のみ入力してください</div>
+      <label htmlFor="confirmPassword" className={styles.label}>
         ユーザーアイコン
       </label>
       <div>
-        {previewImage && (
-          <img src={previewImage} alt="Preview" className="mt-2 h-20 w-20 object-cover rounded-full border" />
-        )}
+        {previewImage && <img src={previewImage} alt="Preview" className={styles.previewImage} />}
         <div>
           <input
             id="profileImage"
@@ -48,55 +47,47 @@ const EditUserForm = ({ onCancel, register, handler, errors, pending, previewIma
               }
             })}
             onChange={handleImageChange}
-            className="mt-2 cursor-pointer"
+            className={styles.fileInput}
           />
-          <div className="h-5 text-xs text-red-500">{errors.profileImage && errors.profileImage.message}</div>
+          <div className={styles.errorText}>{errors.profileImage && errors.profileImage.message}</div>
         </div>
       </div>
 
-      <div>
-        <div className="grid grid-cols-3 mb-5">
-          <div className="col-span-1 text-gray-500">ユーザー名</div>
-          <div className="col-span-2">
-            <input id="username" className="border w-full px-2" {...register("username")} />
-          </div>
-        </div>
+      <div className={styles.formGroup}>
+        <div className={styles.gridLabel}>ユーザー名</div>
+        <input id="username" className={styles.input} {...register("username")} />
+      </div>
 
-        <div className="grid grid-cols-3 mb-5">
-          <div className="col-span-1 text-gray-500">性別</div>
-          <div className="col-span-2">
-            <div className="flex justify-between">
-              <div>
-                <input id="male" type="radio" value="male" {...register("gender")} />
-                <label htmlFor="male" className="cursor-pointer">
-                  男性
-                </label>
-              </div>
-              <div>
-                <input id="female" type="radio" value="female" {...register("gender")} />
-                <label htmlFor="female" className="cursor-pointer">
-                  女性
-                </label>
-              </div>
-              <div>
-                <input id="other" type="radio" value="other" {...register("gender")} />
-                <label htmlFor="other" className="cursor-pointer">
-                  その他
-                </label>
-              </div>
-            </div>
+      <div className={styles.formGroup}>
+        <div className={styles.gridLabel}>性別</div>
+        <div className={styles.genderContainer}>
+          <div>
+            <input id="male" type="radio" value="male" {...register("gender")} />
+            <label htmlFor="male" className={styles.radioLabel}>
+              男性
+            </label>
           </div>
-        </div>
-
-        <div className="grid grid-cols-3">
-          <div className="col-span-1 text-gray-500">誕生日</div>
-          <div className="col-span-2">
-            <input id="birth" type="date" className="border cursor-pointer px-2" {...register("birth")} />
+          <div>
+            <input id="female" type="radio" value="female" {...register("gender")} />
+            <label htmlFor="female" className={styles.radioLabel}>
+              女性
+            </label>
+          </div>
+          <div>
+            <input id="other" type="radio" value="other" {...register("gender")} />
+            <label htmlFor="other" className={styles.radioLabel}>
+              その他
+            </label>
           </div>
         </div>
       </div>
 
-      <div className="flex gap-4 mt-10 justify-end self-end ml-auto">
+      <div className={styles.formGroup}>
+        <div className={styles.gridLabel}>誕生日</div>
+        <input id="birth" type="date" className={styles.input} {...register("birth")} />
+      </div>
+
+      <div className={styles.buttonContainer}>
         {onCancel && (
           <Button onClick={onCancel} variant="secondary">
             Cancel

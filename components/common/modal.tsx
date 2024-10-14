@@ -4,6 +4,7 @@
 import { ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { SubmitButton } from "@/components/ui/submit-button";
+import styles from "./styles/modal.module.css";
 
 export type ModalProps = {
   isOpen: boolean;
@@ -18,13 +19,13 @@ export const Modal = ({ isOpen, title, message, onOk, onCancel, pending }: Modal
   if (!isOpen) return null;
   return (
     isOpen && (
-      <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black bg-opacity-50 w-full h-full z-20">
-        <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-100 w-120 min-h-48 p-5 rounded flex flex-col items-start z-20 max-w-[92%] mx-auto">
-          <div className="w-full text-gray-700 mb-5">
-            <h4 className="mb-5 border-b border-gray-300">{title}</h4>
-            <div className="text-sm">{message}</div>
+      <div className={styles.modalOverlay}>
+        <div className={styles.modalContent}>
+          <div className={styles.modalHeader}>
+            <h4 className={styles.modalTitle}>{title}</h4>
+            <div className={styles.modalMessage}>{message}</div>
           </div>
-          <div className="w-full mt-auto flex gap-6 justify-end">
+          <div className={styles.modalFooter}>
             {onCancel && (
               <Button onClick={onCancel} variant="secondary">
                 Cancel

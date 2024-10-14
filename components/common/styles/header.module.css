@@ -1,0 +1,55 @@
+.headerContainer {
+  @apply fixed w-full top-0 min-h-20 px-5 bg-white shadow border-gray-200 z-10;
+}
+
+.headerContent {
+  @apply flex justify-between items-center h-20;
+}
+
+.desktopMenu {
+  @apply hidden lg:flex items-center space-x-4 text-gray-500;
+}
+
+.link {
+  @apply hover:underline;
+}
+
+.logoutButton {
+  @apply !text-gray-500;
+}
+
+.mobileMenuButton {
+  @apply lg:hidden flex flex-col items-end;
+}
+
+.mobileMenuContainer {
+  @apply flex items-center lg:hidden;
+}
+
+.mobileMenu {
+  @apply overflow-hidden transition-all duration-0 w-full;
+}
+
+.mobileMenuOpen {
+  @apply max-h-40 duration-500;
+}
+
+.mobileMenuClosed {
+  @apply max-h-0;
+}
+
+.mobileMenuContent {
+  @apply mb-5 flex justify-between text-gray-500;
+}
+
+.mobileLinksContainer {
+  @apply flex flex-col space-y-2;
+}
+
+.logoutButtonMobile {
+  @apply text-start !text-gray-500;
+}
+
+.toggleButton {
+  @apply flex justify-center my-auto self-center;
+}

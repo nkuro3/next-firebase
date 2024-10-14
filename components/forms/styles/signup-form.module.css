@@ -1,0 +1,43 @@
+.label {
+  @apply text-gray-500;
+}
+
+.input {
+  @apply border w-full rounded px-2;
+}
+
+.errorText {
+  @apply h-5 text-xs text-red-500;
+}
+
+.fileInput {
+  @apply mt-2 cursor-pointer;
+}
+
+.previewImage {
+  @apply mt-2 h-20 w-20 object-cover rounded-full border;
+}
+
+.genderContainer {
+  @apply flex gap-3;
+}
+
+.radioLabel {
+  @apply cursor-pointer;
+}
+
+.checkbox {
+  @apply border;
+}
+
+.termsLabel {
+  @apply ml-3 cursor-pointer;
+}
+
+.termsLink {
+  @apply text-gray-700 underline;
+}
+
+.submitContainer {
+  @apply mt-5 text-right;
+}

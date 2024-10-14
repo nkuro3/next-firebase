@@ -4,19 +4,20 @@ import Link from "next/link";
 import { useAuth } from "@/hooks/use-auth";
 import { TERMS_URL } from "@/lib/constant";
 import { Logo } from "./logo";
+import styles from "./styles/footer.module.css";
 
 const Footer = () => {
   const { user } = useAuth();
   return (
-    <footer className="p-10 h-80 border border-t flex flex-col items-center justify-center z-10">
-      <div className="mb-10">
-        <Link className="flex items-center" href={user ? "/timeline" : "/"}>
+    <footer className={styles.footerContainer}>
+      <div className={styles.logoContainer}>
+        <Link className={styles.link} href={user ? "/timeline" : "/"}>
           <Logo />
         </Link>
       </div>
 
-      <div className="mb-10 flex flex-col items-center md:flex-row md:divide-x">
-        <Link className="px-3 py-1 hover:underline" href={TERMS_URL}>
+      <div className={styles.linksContainer}>
+        <Link className={styles.linkItem} href={TERMS_URL}>
           利用規約
         </Link>
       </div>

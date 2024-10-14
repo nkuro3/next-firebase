@@ -1,0 +1,43 @@
+.instructionText {
+  @apply mb-3 text-xs text-gray-400;
+}
+
+.label {
+  @apply text-gray-500;
+}
+
+.previewImage {
+  @apply mt-2 h-20 w-20 object-cover rounded-full border;
+}
+
+.fileInput {
+  @apply mt-2 cursor-pointer;
+}
+
+.errorText {
+  @apply h-5 text-xs text-red-500;
+}
+
+.formGroup {
+  @apply grid grid-cols-3 mb-5;
+}
+
+.gridLabel {
+  @apply col-span-1 text-gray-500;
+}
+
+.input {
+  @apply col-span-2 border w-full px-2;
+}
+
+.genderContainer {
+  @apply col-span-2 flex justify-between;
+}
+
+.radioLabel {
+  @apply cursor-pointer;
+}
+
+.buttonContainer {
+  @apply flex gap-4 mt-10 justify-end;
+}

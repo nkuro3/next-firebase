@@ -6,6 +6,7 @@ import { Modal } from "@/components/common/modal";
 import { Button } from "@/components/ui/button";
 import { useModal } from "@/hooks/common/use-modal";
 import { deleteFeed, FeedItem, UserData } from "@/lib/firebase/client";
+import styles from "./styles/deletable-feed.module.css";
 
 type Props = {
   feed: FeedItem;
@@ -21,7 +22,7 @@ export const DeletableFeed = ({ feed, user }: Props) => {
       title: "削除",
       message: (
         <>
-          <div className="mb-2 font-semibold">こちらのフィードを削除しますか？</div>
+          <div className={styles.deleteMessage}>こちらのフィードを削除しますか？</div>
           <div>{feed.content}</div>
         </>
       ),
@@ -39,19 +40,19 @@ export const DeletableFeed = ({ feed, user }: Props) => {
   return (
     <>
       <Modal {...modalState} pending={pending} />
-      <div className="p-6">
-        <div className="flex">
-          <div className="grow flex space-x-4">
+      <div className={styles.feedContainer}>
+        <div className={styles.headerContainer}>
+          <div className={styles.userContainer}>
             <img
               src={user.imageUrl}
               alt={`${user.username}'s avatar`}
               width={40}
               height={40}
-              className="w-10 h-10 rounded-full border"
+              className={styles.avatar}
             />
-            <div className="w-full">
-              <p className="font-bold">{user.username}</p>
-              <p className="my-3">{feed.content}</p>
+            <div className={styles.userInfo}>
+              <p className={styles.username}>{user.username}</p>
+              <p className={styles.content}>{feed.content}</p>
             </div>
           </div>
           <div>
@@ -60,7 +61,7 @@ export const DeletableFeed = ({ feed, user }: Props) => {
             </Button>
           </div>
         </div>
-        <p className="text-sm text-gray-500 text-end">{feed.createdAt?.toLocaleString()}</p>
+        <p className={styles.timestamp}>{feed.createdAt?.toLocaleString()}</p>
       </div>
     </>
   );
