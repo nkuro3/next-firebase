@@ -1,23 +1,33 @@
 .flexLabelContainer {
-  @apply flex justify-between text-gray-500;
+  display: flex; /* flex */
+  justify-content: space-between; /* justify-between */
+  color: #6b7280; /* text-gray-500 */
 }
 
 .label {
-  @apply text-gray-500;
+  color: #6b7280; /* text-gray-500 */
 }
 
 .textarea {
-  @apply border rounded w-full h-32 p-2;
+  border: 1px solid; /* border */
+  border-color: #e5e7eb; /* border-gray-200 */
+  border-radius: 0.25rem; /* rounded */
+  width: 100%; /* w-full */
+  height: 8rem; /* h-32 */
+  padding: 0.5rem; /* p-2 */
 }
 
 .errorText {
-  @apply h-5 text-xs text-red-500;
+  height: 1.25rem; /* h-5 */
+  font-size: 0.75rem; /* text-xs */
+  line-height: 1rem; /* line-height for text-xs */
+  color: #ef4444; /* text-red-500 */
 }
 
 .overLimit {
-  @apply text-red-500;
+  color: #ef4444; /* text-red-500 */
 }
 
 .buttonContainer {
-  @apply text-right;
+  text-align: right; /* text-right */
 }

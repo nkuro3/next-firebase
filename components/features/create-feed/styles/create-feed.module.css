@@ -1,7 +1,10 @@
 .container {
-  @apply mx-auto max-w-120;
+  margin-left: auto; /* mx-auto (left and right) */
+  margin-right: auto; /* mx-auto (left and right) */
+  max-width: 30rem; /* max-w-120 */
 }
 
 .heading {
-  @apply py-10;
+  padding-top: 2.5rem; /* py-10 */
+  padding-bottom: 2.5rem; /* py-10 */
 }

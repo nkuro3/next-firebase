@@ -1,59 +1,116 @@
 .buttonBase {
-  @apply rounded-lg;
+  border-radius: 0.5rem; /* rounded-lg */
 }
 
 .primary {
-  @apply bg-blue-600 hover:bg-blue-500 text-white;
+  background-color: #2563eb; /* bg-blue-600 */
+  color: #ffffff; /* text-white */
+}
+.primary:hover {
+  background-color: #3b82f6; /* hover:bg-blue-500 */
 }
 
 .error {
-  @apply bg-red-600 hover:bg-red-500 text-white;
+  background-color: #dc2626; /* bg-red-600 */
+  color: #ffffff; /* text-white */
+}
+.error:hover {
+  background-color: #ef4444; /* hover:bg-red-500 */
 }
 
 .success {
-  @apply bg-green-600 hover:bg-green-500 text-white;
+  background-color: #16a34a; /* bg-green-600 */
+  color: #ffffff; /* text-white */
+}
+.success:hover {
+  background-color: #22c55e; /* hover:bg-green-500 */
 }
 
 .default {
-  @apply bg-gray-950 hover:bg-gray-600 text-white;
+  background-color: #1f2937; /* bg-gray-950 */
+  color: #ffffff; /* text-white */
+}
+.default:hover {
+  background-color: #4b5563; /* hover:bg-gray-600 */
 }
 
 .secondary {
-  @apply bg-gray-500 hover:bg-gray-400 text-white;
+  background-color: #6b7280; /* bg-gray-500 */
+  color: #ffffff; /* text-white */
+}
+.secondary:hover {
+  background-color: #9ca3af; /* hover:bg-gray-400 */
 }
 
 .outline {
-  @apply bg-transparent border border-gray-400 hover:bg-gray-300 text-black;
+  background-color: transparent; /* bg-transparent */
+  border: 1px solid #9ca3af; /* border border-gray-400 */
+  color: #000000; /* text-black */
+}
+.outline:hover {
+  background-color: #d1d5db; /* hover:bg-gray-300 */
 }
 
 .transparent {
-  @apply bg-transparent hover:bg-gray-100 text-black;
+  background-color: transparent; /* bg-transparent */
+  color: #000000; /* text-black */
+}
+.transparent:hover {
+  background-color: #f3f4f6; /* hover:bg-gray-100 */
 }
 
 .none {
-  @apply text-black;
+  color: #000000; /* text-black */
 }
 
 .sizeSm {
-  @apply py-1 px-2 text-sm;
+  padding-top: 0.25rem; /* py-1 */
+  padding-bottom: 0.25rem; /* py-1 */
+  padding-left: 0.5rem; /* px-2 */
+  padding-right: 0.5rem; /* px-2 */
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1.25rem; /* line-height for text-sm */
 }
 
 .sizeMd {
-  @apply py-2 px-3;
+  padding-top: 0.5rem; /* py-2 */
+  padding-bottom: 0.5rem; /* py-2 */
+  padding-left: 0.75rem; /* px-3 */
+  padding-right: 0.75rem; /* px-3 */
+  line-height: 1.5rem; /* line-height for text-md */
 }
 
 .sizeLg {
-  @apply py-3 px-5 text-lg;
+  padding-top: 0.75rem; /* py-3 */
+  padding-bottom: 0.75rem; /* py-3 */
+  padding-left: 1.25rem; /* px-5 */
+  padding-right: 1.25rem; /* px-5 */
+  font-size: 1.125rem; /* text-lg */
+  line-height: 1.75rem; /* line-height for text-lg */
 }
 
 .disabledButton {
-  @apply bg-gray-500 hover:bg-gray-500 cursor-default;
+  background-color: #6b7280; /* bg-gray-500 */
+  cursor: default; /* cursor-default */
+}
+.disabledButton:hover {
+  background-color: #6b7280; /* hover:bg-gray-500 */
 }
 
 .linkButton {
-  @apply p-0 bg-transparent hover:bg-transparent hover:underline text-black cursor-pointer;
+  padding: 0; /* p-0 */
+  background-color: transparent; /* bg-transparent */
+  color: #000000; /* text-black */
+  cursor: pointer; /* cursor-pointer */
+}
+.linkButton:hover {
+  background-color: transparent; /* hover:bg-transparent */
+  text-decoration: underline; /* hover:underline */
 }
 
 .linkButtonDisabled {
-  @apply p-0 bg-transparent hover:bg-transparent text-gray-400 cursor-default;
+  padding: 0; /* p-0 */
+  background-color: transparent; /* bg-transparent */
+  color: #9ca3af; /* text-gray-400 */
+  cursor: default; /* cursor-default */
 }

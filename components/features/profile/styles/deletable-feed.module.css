@@ -1,35 +1,49 @@
 .feedContainer {
-  @apply p-6 border -mb-[1px];
+  padding: 1.5rem; /* p-6 */
+  border: 1px solid; /* border */
+  border-color: #e5e7eb; /* border-gray-200 */
+  margin-bottom: -1px; /* -mb-[1px] */
 }
 
 .headerContainer {
-  @apply flex;
+  display: flex; /* flex */
 }
 
 .userContainer {
-  @apply grow flex space-x-4;
+  flex-grow: 1; /* grow */
+  display: flex; /* flex */
+  gap: 1rem; /* space-x-4 */
 }
 
 .avatar {
-  @apply w-10 h-10 rounded-full border;
+  width: 2.5rem; /* w-10 */
+  height: 2.5rem; /* h-10 */
+  border-radius: 9999px; /* rounded-full */
+  border: 1px solid; /* border */
+  border-color: #e5e7eb; /* border-gray-200 */
 }
 
 .userInfo {
-  @apply w-full;
+  width: 100%; /* w-full */
 }
 
 .username {
-  @apply font-bold;
+  font-weight: 700; /* font-bold */
 }
 
 .content {
-  @apply my-3;
+  margin-top: 0.75rem; /* my-3 */
+  margin-bottom: 0.75rem; /* my-3 */
 }
 
 .timestamp {
-  @apply text-sm text-gray-500 text-end;
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1.25rem; /* line-height for text-sm */
+  color: #6b7280; /* text-gray-500 */
+  text-align: end; /* text-end */
 }
 
 .deleteMessage {
-  @apply mb-2 font-semibold;
+  margin-bottom: 0.5rem; /* mb-2 */
+  font-weight: 600; /* font-semibold */
 }

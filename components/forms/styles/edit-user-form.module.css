@@ -1,43 +1,90 @@
-.instructionText {
-  @apply mb-3 text-xs text-gray-400;
+.flexLabelContainer {
+  display: flex; /* flex */
+  justify-content: space-between; /* justify-between */
+  color: #6b7280; /* text-gray-500 */
 }
 
 .label {
-  @apply text-gray-500;
+  color: #6b7280; /* text-gray-500 */
 }
 
-.previewImage {
-  @apply mt-2 h-20 w-20 object-cover rounded-full border;
-}
-
-.fileInput {
-  @apply mt-2 cursor-pointer;
+.textarea {
+  border: 1px solid; /* border */
+  border-color: #d1d5db; /* border-gray-300 */
+  border-radius: 0.25rem; /* rounded */
+  width: 100%; /* w-full */
+  height: 8rem; /* h-32 */
+  padding: 0.5rem; /* p-2 */
 }
 
 .errorText {
-  @apply h-5 text-xs text-red-500;
+  height: 1.25rem; /* h-5 */
+  font-size: 0.75rem; /* text-xs */
+  line-height: 1rem; /* line-height for text-xs */
+  color: #ef4444; /* text-red-500 */
 }
 
-.formGroup {
-  @apply grid grid-cols-3 mb-5;
-}
-
-.gridLabel {
-  @apply col-span-1 text-gray-500;
-}
-
-.input {
-  @apply col-span-2 border w-full px-2;
-}
-
-.genderContainer {
-  @apply col-span-2 flex justify-between;
-}
-
-.radioLabel {
-  @apply cursor-pointer;
+.overLimit {
+  color: #ef4444; /* text-red-500 */
 }
 
 .buttonContainer {
-  @apply flex gap-4 mt-10 justify-end;
+  display: flex; /* flex */
+  gap: 1rem; /* gap-4 */
+  margin-top: 2.5rem; /* mt-10 */
+  justify-content: flex-end; /* justify-end */
+  text-align: right; /* text-right */
+}
+
+.instructionText {
+  margin-bottom: 0.75rem; /* mb-3 */
+  font-size: 0.75rem; /* text-xs */
+  line-height: 1rem; /* line-height for text-xs */
+  color: #9ca3af; /* text-gray-400 */
+}
+
+.previewImage {
+  margin-top: 0.5rem; /* mt-2 */
+  height: 5rem; /* h-20 */
+  width: 5rem; /* w-20 */
+  object-fit: cover; /* object-cover */
+  border-radius: 9999px; /* rounded-full */
+  border: 1px solid; /* border */
+  border-color: #e5e7eb; /* border-gray-200 */
+}
+
+.fileInput {
+  margin-top: 0.5rem; /* mt-2 */
+  cursor: pointer; /* cursor-pointer */
+}
+
+.formGroup {
+  display: grid; /* grid */
+  grid-template-columns: repeat(3, minmax(0, 1fr)); /* grid-cols-3 */
+  margin-bottom: 1.25rem; /* mb-5 */
+}
+
+.gridLabel {
+  grid-column: span 1 / span 1; /* col-span-1 */
+  color: #6b7280; /* text-gray-500 */
+}
+
+.input {
+  grid-column: span 2 / span 2; /* col-span-2 */
+  border: 1px solid; /* border */
+  border-color: #e5e7eb; /* border-gray-200 */
+  width: 100%; /* w-full */
+  padding-left: 0.5rem; /* px-2 */
+  padding-right: 0.5rem; /* px-2 */
+  border-radius: 0.25rem; /* rounded */
+}
+
+.genderContainer {
+  grid-column: span 2 / span 2; /* col-span-2 */
+  display: flex; /* flex */
+  justify-content: space-between; /* justify-between */
+}
+
+.radioLabel {
+  cursor: pointer; /* cursor-pointer */
 }

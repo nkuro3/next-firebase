@@ -1,15 +1,23 @@
 .label {
-  @apply text-gray-500;
+  color: #6b7280; /* text-gray-500 */
 }
 
 .input {
-  @apply border w-full rounded px-2;
+  border: 1px solid; /* border */
+  width: 100%; /* w-full */
+  border-radius: 0.25rem; /* rounded */
+  padding-left: 0.5rem; /* px-2 */
+  padding-right: 0.5rem; /* px-2 */
+  border-color: #e5e7eb; /* border-gray-200 */
 }
 
 .errorText {
-  @apply h-5 text-xs text-red-500;
+  height: 1.25rem; /* h-5 */
+  font-size: 0.75rem; /* text-xs */
+  line-height: 1rem; /* line-height for text-xs */
+  color: #ef4444; /* text-red-500 */
 }
 
 .submitContainer {
-  @apply text-right;
+  text-align: right; /* text-right */
 }

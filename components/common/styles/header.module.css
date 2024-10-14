@@ -1,55 +1,107 @@
 .headerContainer {
-  @apply fixed w-full top-0 min-h-20 px-5 bg-white shadow border-gray-200 z-10;
+  position: fixed; /* fixed */
+  width: 100%; /* w-full */
+  top: 0; /* top-0 */
+  min-height: 5rem; /* min-h-20 */
+  padding-left: 1.25rem; /* px-5 */
+  padding-right: 1.25rem; /* px-5 */
+  background-color: #ffffff; /* bg-white */
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.1),
+    0 1px 2px rgba(0, 0, 0, 0.06); /* shadow */
+  border-color: #e5e7eb; /* border-gray-200 */
+  z-index: 10; /* z-10 */
 }
 
 .headerContent {
-  @apply flex justify-between items-center h-20;
+  display: flex; /* flex */
+  justify-content: space-between; /* justify-between */
+  align-items: center; /* items-center */
+  height: 5rem; /* h-20 */
 }
 
 .desktopMenu {
-  @apply hidden lg:flex items-center space-x-4 text-gray-500;
+  display: none; /* hidden */
 }
 
-.link {
-  @apply hover:underline;
+@media (min-width: 1024px) {
+  .desktopMenu {
+    display: flex; /* lg:flex */
+    align-items: center; /* items-center */
+    gap: 1rem; /* space-x-4 */
+    color: #6b7280; /* text-gray-500 */
+  }
+}
+
+.link:hover {
+  text-decoration: underline; /* hover:underline */
 }
 
 .logoutButton {
-  @apply !text-gray-500;
+  color: #6b7280 !important; /* !text-gray-500 */
 }
 
 .mobileMenuButton {
-  @apply lg:hidden flex flex-col items-end;
+  display: flex; /* flex */
+  flex-direction: column; /* flex-col */
+  align-items: flex-end; /* items-end */
+}
+
+@media (min-width: 1024px) {
+  .mobileMenuButton {
+    display: none; /* lg:hidden */
+  }
 }
 
 .mobileMenuContainer {
-  @apply flex items-center lg:hidden;
+  display: flex; /* flex */
+  align-items: center; /* items-center */
+}
+
+@media (min-width: 1024px) {
+  .mobileMenuContainer {
+    display: none; /* lg:hidden */
+  }
 }
 
 .mobileMenu {
-  @apply overflow-hidden transition-all duration-0 w-full;
+  overflow: hidden; /* overflow-hidden */
+  transition: all 0s; /* transition-all duration-0 */
+  width: 100%; /* w-full */
 }
 
 .mobileMenuOpen {
-  @apply max-h-40 duration-500;
+  max-height: 10rem; /* max-h-40 */
+  transition-duration: 0.5s; /* duration-500 */
 }
 
 .mobileMenuClosed {
-  @apply max-h-0;
+  max-height: 0; /* max-h-0 */
 }
 
 .mobileMenuContent {
-  @apply mb-5 flex justify-between text-gray-500;
+  margin-bottom: 1.25rem; /* mb-5 */
+  display: flex; /* flex */
+  justify-content: space-between; /* justify-between */
+  color: #6b7280; /* text-gray-500 */
 }
 
 .mobileLinksContainer {
-  @apply flex flex-col space-y-2;
+  display: flex; /* flex */
+  flex-direction: column; /* flex-col */
+  gap: 0.5rem; /* space-y-2 */
 }
 
 .logoutButtonMobile {
-  @apply text-start !text-gray-500;
+  text-align: start; /* text-start */
+  color: #6b7280 !important; /* !text-gray-500 */
 }
 
 .toggleButton {
-  @apply flex justify-center my-auto self-center w-[32px];
+  display: flex; /* flex */
+  justify-content: center; /* justify-center */
+  margin-top: auto; /* my-auto */
+  margin-bottom: auto; /* my-auto */
+  align-self: center; /* self-center */
+  width: 32px; /* w-[32px] */
 }

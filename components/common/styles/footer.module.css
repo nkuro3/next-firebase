@@ -1,19 +1,40 @@
 .footerContainer {
-  @apply p-10 h-80 border border-t flex flex-col items-center justify-center z-10;
+  padding: 2.5rem; /* p-10 */
+  height: 20rem; /* h-80 */
+  border: 1px solid; /* border */
+  border-top: 1px solid; /* border-t */
+  border-color: #e5e7eb; /* border-gray-200 */
+  display: flex; /* flex */
+  flex-direction: column; /* flex-col */
+  align-items: center; /* items-center */
+  justify-content: center; /* justify-center */
+  z-index: 10; /* z-10 */
 }
 
 .logoContainer {
-  @apply mb-10;
+  margin-bottom: 2.5rem; /* mb-10 */
 }
 
 .linksContainer {
-  @apply mb-10 flex flex-col items-center md:flex-row md:divide-x;
+  margin-bottom: 2.5rem; /* mb-10 */
+  display: flex; /* flex */
+  flex-direction: column; /* flex-col */
+  align-items: center; /* items-center */
 }
 
 .link {
-  @apply flex items-center;
+  display: flex; /* flex */
+  align-items: center; /* items-center */
 }
 
 .linkItem {
-  @apply px-3 py-1 hover:underline;
+  padding-left: 0.75rem; /* px-3 */
+  padding-right: 0.75rem; /* px-3 */
+  padding-top: 0.25rem; /* py-1 */
+  padding-bottom: 0.25rem; /* py-1 */
+  text-decoration: none; /* default link */
+}
+
+.linkItem:hover {
+  text-decoration: underline; /* hover:underline */
 }

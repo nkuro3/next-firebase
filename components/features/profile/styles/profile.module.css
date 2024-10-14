@@ -1,51 +1,106 @@
 .profileContainer {
-  @apply max-w-2xl mx-auto border-x;
+  max-width: 42rem; /* max-w-2xl */
+  margin-left: auto; /* mx-auto (left and right) */
+  margin-right: auto; /* mx-auto (left and right) */
+  border-left: 1px solid; /* border-x (left) */
+  border-right: 1px solid; /* border-x (right) */
+  border-color: #e5e7eb; /* border-gray-200 */
 }
 
 .editButtonContainer {
-  @apply text-end p-4;
+  text-align: end; /* text-end */
+  padding: 1rem; /* p-4 */
 }
 
 .profileHeader {
-  @apply flex justify-center gap-5;
+  display: flex; /* flex */
+  justify-content: center; /* justify-center */
+  gap: 1.25rem; /* gap-5 */
 }
 
 .avatar {
-  @apply w-20 h-20 rounded-full border;
+  width: 5rem; /* w-20 */
+  height: 5rem; /* h-20 */
+  border-radius: 9999px; /* rounded-full */
+  border: 1px solid; /* border */
+  border-color: #e5e7eb; /* border-gray-200 */
 }
 
 .username {
-  @apply my-auto text-4xl;
+  margin-top: auto; /* my-auto */
+  margin-bottom: auto; /* my-auto */
+  font-size: 2.25rem; /* text-4xl */
+  line-height: 2.5rem; /* line-height for text-4xl */
 }
 
 .profileDetailsContainer {
-  @apply m-10 p-5 border rounded-xl;
+  margin: 2.5rem; /* m-10 */
+  padding: 1.25rem; /* p-5 */
+  border: 1px solid; /* border */
+  border-color: #e5e7eb; /* border-gray-200 */
+  border-radius: 0.75rem; /* rounded-xl */
 }
 
 .profileTitle {
-  @apply mb-5;
+  margin-bottom: 1.25rem; /* mb-5 */
 }
 
 .detailRow {
-  @apply grid grid-cols-3 mb-3;
+  display: grid; /* grid */
+  grid-template-columns: repeat(3, minmax(0, 1fr)); /* grid-cols-3 */
+  margin-bottom: 0.75rem; /* mb-3 */
 }
 
 .detailLabel {
-  @apply col-span-3 sm:col-span-1 text-gray-500;
+  grid-column: span 3 / span 3; /* col-span-3 */
+  @media (min-width: 640px) {
+    grid-column: span 1 / span 1; /* sm:col-span-1 */
+  }
+  color: #6b7280; /* text-gray-500 */
 }
 
 .detailValue {
-  @apply col-span-2;
+  grid-column: span 2 / span 2; /* col-span-2 */
 }
 
 .editUserOverlay {
-  @apply fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black bg-opacity-50 w-full h-full z-10;
+  position: fixed; /* fixed */
+  top: 50%; /* top-1/2 */
+  left: 50%; /* left-1/2 */
+  transform: translate(-50%, -50%); /* -translate-x-1/2, -translate-y-1/2 */
+  background-color: rgba(0, 0, 0, 0.5); /* bg-black bg-opacity-50 */
+  width: 100%; /* w-full */
+  height: 100%; /* h-full */
+  z-index: 10; /* z-10 */
 }
 
 .editUserModal {
-  @apply fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-start z-20 bg-white p-7 rounded-lg border max-w-[92%] mx-auto;
+  position: fixed; /* fixed */
+  top: 50%; /* top-1/2 */
+  left: 50%; /* left-1/2 */
+  transform: translate(-50%, -50%); /* -translate-x-1/2, -translate-y-1/2 */
+  display: flex; /* flex */
+  flex-direction: column; /* flex-col */
+  align-items: flex-start; /* items-start */
+  z-index: 20; /* z-20 */
+  background-color: #ffffff; /* bg-white */
+  padding: 1.75rem; /* p-7 */
+  border-radius: 0.5rem; /* rounded-lg */
+  border: 1px solid; /* border */
+  border-color: #e5e7eb; /* border-gray-200 */
+  max-width: 92%; /* max-w-[92%] */
+  margin-left: auto; /* mx-auto (left and right) */
+  margin-right: auto; /* mx-auto (left and right) */
 }
 
 .pastFeedsHeader {
-  @apply px-5 py-3 border-y -mb-[1px] font-semibold;
+  padding-left: 1.25rem; /* px-5 */
+  padding-right: 1.25rem; /* px-5 */
+  padding-top: 0.75rem; /* py-3 */
+  padding-bottom: 0.75rem; /* py-3 */
+  border-top: 1px solid; /* border-y (top) */
+  border-bottom: 1px solid; /* border-y (bottom) */
+  border-color: #e5e7eb; /* border-gray-200 */
+  margin-bottom: -1px; /* -mb-[1px] */
+  font-weight: 600; /* font-semibold */
 }

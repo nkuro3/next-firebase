@@ -1,7 +1,13 @@
 .container {
-  @apply mx-auto max-w-120;
+  margin-left: auto; /* mx-auto (left and right) */
+  margin-right: auto; /* mx-auto (left and right) */
+  max-width: 30rem; /* max-w-120 */
 }
 
 .formContainer {
-  @apply mb-10 border p-7 rounded-lg;
+  margin-bottom: 2.5rem; /* mb-10 */
+  border: 1px solid; /* border */
+  border-color: #d1d5db; /* border-gray-300 */
+  padding: 1.75rem; /* p-7 */
+  border-radius: 0.5rem; /* rounded-lg */
 }

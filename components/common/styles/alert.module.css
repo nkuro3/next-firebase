@@ -1,39 +1,64 @@
 .alertBase {
-  @apply flex items-center p-4 mb-4 rounded-lg;
+  display: flex; /* flex */
+  align-items: center; /* items-center */
+  padding: 1rem; /* p-4 */
+  margin-bottom: 1rem; /* mb-4 */
+  border-radius: 0.5rem; /* rounded-lg */
 }
 
 .info {
-  @apply text-blue-800 bg-blue-100;
+  color: #1e40af; /* text-blue-800 */
+  background-color: #dbeafe; /* bg-blue-100 */
 }
 
 .error {
-  @apply text-red-800 bg-red-100;
+  color: #b91c1c; /* text-red-800 */
+  background-color: #fee2e2; /* bg-red-100 */
 }
 
 .success {
-  @apply text-green-800 bg-green-100;
+  color: #166534; /* text-green-800 */
+  background-color: #d1fae5; /* bg-green-100 */
 }
 
 .warning {
-  @apply text-yellow-800 bg-yellow-100;
+  color: #854d0e; /* text-yellow-800 */
+  background-color: #fef3c7; /* bg-yellow-100 */
 }
 
 .default {
-  @apply text-gray-800 bg-gray-100;
+  color: #374151; /* text-gray-800 */
+  background-color: #f3f4f6; /* bg-gray-100 */
 }
 
 .icon {
-  @apply flex-shrink-0 w-4 h-4;
+  flex-shrink: 0; /* flex-shrink-0 */
+  width: 1rem; /* w-4 */
+  height: 1rem; /* h-4 */
 }
 
 .message {
-  @apply ms-3 text-sm font-medium;
+  margin-inline-start: 0.75rem; /* ms-3 */
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1.25rem; /* line-height for text-sm */
+  font-weight: 500; /* font-medium */
 }
 
 .closeButton {
-  @apply ms-auto -mx-1.5 -my-1.5 rounded-lg p-1.5 inline-flex items-center justify-center h-8 w-8;
+  margin-inline-start: auto; /* ms-auto */
+  margin-inline-end: -0.375rem; /* -mx-1.5 */
+  margin-block-start: -0.375rem; /* -my-1.5 */
+  margin-block-end: -0.375rem; /* -my-1.5 */
+  border-radius: 0.5rem; /* rounded-lg */
+  padding: 0.375rem; /* p-1.5 */
+  display: inline-flex; /* inline-flex */
+  align-items: center; /* items-center */
+  justify-content: center; /* justify-center */
+  height: 2rem; /* h-8 */
+  width: 2rem; /* w-8 */
 }
 
 .closeIcon {
-  @apply w-3 h-3;
+  width: 0.75rem; /* w-3 */
+  height: 0.75rem; /* h-3 */
 }

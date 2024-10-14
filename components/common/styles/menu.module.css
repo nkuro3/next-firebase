@@ -1,7 +1,9 @@
 .menuContainer {
-  @apply flex flex-col;
+  display: flex; /* flex */
+  flex-direction: column; /* flex-col */
 }
 
 .linkButton {
-  @apply font-bold rounded-full;
+  font-weight: 700; /* font-bold */
+  border-radius: 9999px; /* rounded-full */
 }
