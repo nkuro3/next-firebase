@@ -30,6 +30,7 @@
   object-fit: cover; /* object-cover */
   border-radius: 9999px; /* rounded-full */
   border: 1px solid; /* border */
+  border-color: #e5e7eb; /* border-gray-200 */
 }
 
 .genderContainer {

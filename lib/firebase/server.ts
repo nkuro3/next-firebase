@@ -3,12 +3,11 @@ import { initializeApp, cert, getApps } from "firebase-admin/app";
 import { getAuth } from "firebase-admin/auth";
 import { FieldValue, getFirestore } from "firebase-admin/firestore";
 import { getStorage } from "firebase-admin/storage";
-import secrets from "@/secrets.json";
 
 export const firebaseAdmin =
   getApps()[0] ??
   initializeApp({
-    credential: cert(secrets as ServiceAccount),
+    credential: cert(JSON.parse(process.env.FIREBASE_CREDENTIALS || "") as ServiceAccount),
     storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
   });
 

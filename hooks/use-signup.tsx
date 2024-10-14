@@ -57,7 +57,7 @@ export const useSignup = () => {
         return;
       }
 
-      router.push("/timeline");
+      router.push("/login");
     });
   };
   const [previewImage, setPreviewImage] = useState("");
