@@ -38,6 +38,7 @@ export const uploadIcon = async (uid: string, buffer: Buffer) => {
     const file = bucket.file(`profileImages/${uid}`);
 
     await file.save(buffer);
+    await file.makePublic();
     return file.publicUrl();
   } catch (error) {
     console.error("Error uploading icon:", error);
