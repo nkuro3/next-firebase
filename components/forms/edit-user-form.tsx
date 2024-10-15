@@ -18,7 +18,7 @@ type Props = {
 
 const EditUserForm = ({ onCancel, register, handler, errors, pending, previewImage, handleImageChange }: Props) => {
   return (
-    <form onSubmit={handler} noValidate>
+    <form onSubmit={handler} noValidate style={{ width: "100%" }}>
       <div className={styles.instructionText}>更新する項目のみ入力してください</div>
       <label htmlFor="confirmPassword" className={styles.label}>
         ユーザーアイコン

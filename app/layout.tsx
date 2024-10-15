@@ -12,7 +12,7 @@ export default function RootLayout({
   return (
     <SessionProvider>
       <html lang="jp">
-        <body className="overscroll-y-none">
+        <body className="overscroll-none">
           <Header />
           <main className="mt-20 min-h-[calc(100vh-80px)] container">{children}</main>
           <Footer />

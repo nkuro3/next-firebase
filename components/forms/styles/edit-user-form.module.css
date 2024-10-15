@@ -73,7 +73,7 @@
   grid-column: span 2 / span 2; /* col-span-2 */
   border: 1px solid; /* border */
   border-color: #e5e7eb; /* border-gray-200 */
-  width: 100%; /* w-full */
+  width: fit-content; /* w-full */
   padding-left: 0.5rem; /* px-2 */
   padding-right: 0.5rem; /* px-2 */
   border-radius: 0.25rem; /* rounded */
@@ -82,7 +82,7 @@
 .genderContainer {
   grid-column: span 2 / span 2; /* col-span-2 */
   display: flex; /* flex */
-  justify-content: space-between; /* justify-between */
+  gap: 1rem; /* gap-4 */
 }
 
 .radioLabel {
