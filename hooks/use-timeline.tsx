@@ -32,7 +32,6 @@ export const useTimeline = () => {
 
     setLoading(true);
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000)); // simulate network latency
       const { items, lastDoc: newLastDoc } = await fetchFeedItems(lastDoc);
       setLastDoc(newLastDoc);
       setFeedItems((prevItems) => [...prevItems, ...items]);

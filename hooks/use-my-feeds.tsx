@@ -33,7 +33,6 @@ export const useMyFeeds = ({ uid }: Props) => {
 
     setLoading(true);
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000)); // simulate network latency
       const { items, lastDoc: newLastDoc } = await fetchFeedItems(lastDoc, uid);
       setLastDoc(newLastDoc);
       setFeedItems((prevItems) => [...prevItems, ...items]);
