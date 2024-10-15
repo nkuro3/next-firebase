@@ -24,8 +24,8 @@ const schema = z
         invalid_type_error: "Invalid Password"
       })
       .regex(
-        /^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\d).{9,}$/,
-        "Please set a password of at least 9 digits including upper and lower case letters and numbers."
+        /^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\d).{8,}$/,
+        "Please set a password of at least 8 digits including upper and lower case letters and numbers."
       ),
     confirmPassword: z.string({
       required_error: "Required"

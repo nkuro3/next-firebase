@@ -123,7 +123,11 @@ const SignupFrom = ({
           type="password"
           {...register("password", {
             required: "この項目は必須です。",
-            minLength: { value: 8, message: "パスワードは8文字以上で設定してください。" }
+            minLength: { value: 8, message: "パスワードは8文字以上で設定してください。" },
+            pattern: {
+              value: /^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\d).{3,}$/,
+              message: "パスワードは大文字、小文字、数字を含めて設定してください。"
+            }
           })}
           className={styles.input}
         />
